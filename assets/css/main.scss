@@ -1,0 +1,13 @@
+---
+# Jekyll needs front matter for SCSS files
+---
+
+$sidebar-width: 20rem;
+
+@import "hydeout";
+
+#sidebar {
+  .site-title {
+    font-family: 'Bona Nova', serif;
+  }
+}

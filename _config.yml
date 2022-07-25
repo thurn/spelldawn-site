@@ -9,7 +9,12 @@ plugins:
 
 exclude:
   - .sass-cache/
+  - package.json
+  - node_modules/
+  - tsconfig.json
+  - rollup.config.js
   - .jekyll-cache/
+  - src/
   - gemfiles/
   - Gemfile
   - Gemfile.lock

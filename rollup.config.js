@@ -4,15 +4,17 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+// From https://github.com/lit/lit-element-starter-ts
+
 import summary from 'rollup-plugin-summary';
 import {terser} from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 
 export default {
-  input: 'out/elements.js',
+  input: 'out/main.js',
   output: {
-    file: 'assets/scripts/elements.bundled.js',
+    file: 'assets/scripts/main.bundled.js',
     format: 'esm',
   },
   onwarn(warning) {
@@ -21,7 +23,7 @@ export default {
     }
   },
   plugins: [
-    replace({'Reflect.decorate': 'undefined'}),
+    replace({preventAssignment: true, 'Reflect.decorate': 'undefined'}),
     resolve(),
     terser({
       ecma: 2017,

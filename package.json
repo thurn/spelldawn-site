@@ -1,8 +1,8 @@
 {
   "name": "spelldawn-site",
   "version": "0.0.0",
-  "main": "elements.js",
-  "module": "elements.js",
+  "main": "main.js",
+  "module": "main.js",
   "type": "module",
   "scripts": {
     "build": "tsc ; rollup -c",

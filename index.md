@@ -2,7 +2,7 @@
 layout: page
 ---
 
-**Spelldawn** is a digital card game based on Richard Garfield's classic 1996 game *Netrunner* and its 2012 Fantasy Flight Games remake *Android: Netrunner*. If Netrunner were Magic: The Gathering, Spelldawn would be Hearthstone -- a version of the game that’s simplified for fast play on mobile devices but which preserves the core gameplay elements.
+**Spelldawn** is a digital card game based on Richard Garfield's classic 1996 game _Netrunner_ and its 2012 Fantasy Flight Games remake _Android: Netrunner_. If Netrunner were Magic: The Gathering, Spelldawn would be Hearthstone -- a version of the game that’s simplified for fast play on mobile devices but which preserves the core gameplay elements.
 
 ![Screenshot of a game in progress](/assets/images/sampleGame.png)
 

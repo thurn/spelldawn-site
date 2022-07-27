@@ -1,7 +1,18 @@
 import {LitElement, html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import {
+  customElement,
+  property,
+  queryAssignedNodes,
+  queryAssignedElements,
+} from 'lit/decorators.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 import {School, Rarity, Faction} from './primitives';
-import {getCardFrame, getCardImage, fantasyCards, elementalCards} from './assets';
+import {
+  getCardFrame,
+  getCardImage,
+  fantasyCards,
+  elementalCards,
+} from './assets';
 import './card_title';
 
 @customElement('spelldawn-card')
@@ -130,6 +141,12 @@ export class SpelldawnCard extends LitElement {
   @property({type: Number})
   schemePoints?: number;
 
+  @queryAssignedElements()
+  _elements!: Array<Node>;
+
+  @queryAssignedNodes()
+  _children!: Array<Node>;
+
   rarityJewel(): string {
     switch (this.rarity) {
       case Rarity.Uncommon:
@@ -156,6 +173,24 @@ export class SpelldawnCard extends LitElement {
     }
   }
 
+  processSlot() {
+    for (let child of this._children) {
+      if (child instanceof Element) {
+        let e = child as Element;
+        e.innerHTML = e.innerHTML.replace('{#}', '<i class="fas fa-bolt"></i>');
+        e.innerHTML = e.innerHTML.replace('{M}', '<i class="fas fa-fire"></i>');
+        e.innerHTML = e.innerHTML.replace(
+          '{A}',
+          '<i class="fas fa-hourglass"></i>'
+        );
+      }
+    }
+  }
+
+  override updated() {
+    this.processSlot();
+  }
+
   override render() {
     let image = null;
     if (this.image !== undefined) {
@@ -166,7 +201,9 @@ export class SpelldawnCard extends LitElement {
       <div id="container">
         ${image}
         <img id="frame" src=${getCardFrame(this.school)} />
-        <spelldawn-card-title>${this.name}</spelldawn-card-title>
+        <spelldawn-card-title faction=${ifDefined(this.faction)}
+          >${this.name}</spelldawn-card-title
+        >
         <img id="rarity" src=${this.rarityJewel()} />
         ${this.cardIcon(
           'topLeft',

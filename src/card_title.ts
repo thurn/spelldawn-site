@@ -24,15 +24,52 @@ export class SpelldawnCardTitle extends LitElement {
       padding-top: 0.15rem;
       font-weight: bold;
     }
+
+    .abyssal {
+      color: #388e3c;
+    }
+
+    .infernal {
+      color: #e53935;
+    }
+
+    .mortal {
+      color: #1976d2;
+    }
+
+    .prismatic {
+      color: #e65100;
+    }
+
+    .construct {
+      color: #c2185b;
+    }
   `;
 
   @property()
   faction?: Faction;
 
+  factionClass(): string {
+    switch (this.faction) {
+      case Faction.Abyssal:
+        return 'abyssal';
+      case Faction.Infernal:
+        return 'infernal';
+      case Faction.Mortal:
+        return 'mortal';
+      case Faction.Prismatic:
+        return 'prismatic';
+      case Faction.Construct:
+        return 'construct';
+      default:
+        return '';
+    }
+  }
+
   override render() {
     return html`
       <img id="titleBackground" src=${getTitleBackground()} />
-      <span id="text"><slot></slot></span>
+      <span id="text" class=${this.factionClass()}><slot></slot></span>
     `;
   }
 }

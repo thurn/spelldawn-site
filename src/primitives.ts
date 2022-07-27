@@ -14,7 +14,7 @@ export enum Rarity {
 
 export enum Faction {
   Mortal = 'Mortal',
-  Infernal = 'Inferna',
+  Infernal = 'Infernal',
   Abyssal = 'Abyssal',
   Prismatic = 'Prismatic',
   Construct = 'Construct',

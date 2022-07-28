@@ -6,9 +6,17 @@ export function getTitleBackground(): string {
   return tcgCards('Custom/Title/BlackWhiteFaceTape.png');
 }
 
-export function getCardFrame(_?: School): string {
-  // todo: handle school
-  return fantasyCards('Cards/Card_Steampunk_Style_Color_1.png');
+export function getCardFrame(school?: School): string {
+  switch (school) {
+    case School.Law:
+      return fantasyCards('Cards/Card_Steampunk_Style_Color_1.png');
+    case School.Primal:
+      return fantasyCards('Cards/Card_Elf_Style_Color_1.png');
+    case School.Shadow:
+      return fantasyCards('Cards/Card_Daemon_Style_Color_1.png');
+    default:
+      return fantasyCards('Cards/Card_Lovecraft_Style_Color_1.png');
+  }
 }
 
 export function getCardImage(path: string): string {

@@ -26,6 +26,11 @@ export class SpelldawnCard extends LitElement {
       margin: 0.5rem 1rem;
     }
 
+    ::slotted(*) {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
     #container {
       position: absolute;
     }
@@ -141,8 +146,8 @@ export class SpelldawnCard extends LitElement {
   @property({type: Number})
   schemePoints?: number;
 
-  @queryAssignedElements()
-  _elements!: Array<Node>;
+  @property({type: Boolean})
+  curveTitleText: boolean = false;
 
   @queryAssignedNodes()
   _children!: Array<Node>;
@@ -201,9 +206,12 @@ export class SpelldawnCard extends LitElement {
       <div id="container">
         ${image}
         <img id="frame" src=${getCardFrame(this.school)} />
-        <spelldawn-card-title faction=${ifDefined(this.faction)}
-          >${this.name}</spelldawn-card-title
+        <spelldawn-card-title
+          faction=${ifDefined(this.faction)}
+          name=${ifDefined(this.name)}
+          ?curvetext=${this.curveTitleText}
         >
+        </spelldawn-card-title>
         <img id="rarity" src=${this.rarityJewel()} />
         ${this.cardIcon(
           'topLeft',

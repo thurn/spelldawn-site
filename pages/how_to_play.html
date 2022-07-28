@@ -5,13 +5,183 @@ sidebar_link: true
 sidebar_sort_order: 1
 ---
 
-<p>Text</p>
+<p>
+  <i>Spelldawn</i> is not currently a game you can download and play. At time of
+  writing, development is perhaps at most 20% complete, so everything here is
+  extremely subject to change based on iteration and playtesting. The game
+  doesn't currently have an in-game tutorial of any kind, so this serves as an
+  introduction until we can make one.
+</p>
+
+<p>
+  If you're familiar with the rules of Android: Netrunner, the companion page
+  <a href="/pages/spelldawn_for_netrunner_players.html"
+    >Spelldawn for Netrunner Players</a
+  >
+  might also prove helpful.
+</p>
+
+<h2>Introduction</h2>
+<p>
+  <i>Spelldawn</i> is a card game for two players set in a high fantasy
+  universe. One player acts as the <b>Overlord</b>, a dungeon master attempting
+  to put their nefarious schemes into effect. The other player assumes the role
+  of the <b>Champion</b>, a valiant hero attempting to delve into the dungeon
+  and thwart the forces of evil.
+</p>
+<p>
+  Players in <i>Spelldawn</i> alternate taking turns, always beginning with the
+  Overlord. During a player's turn, they have three <b>action points</b> to
+  spend on a variety of possible game effects such as gaining mana, drawing
+  cards, and playing cards. The Overlord can play and level up their scheme
+  cards in the rooms of the dungeon in order to score points, while deploying
+  minions to defend them. The Champion can initiate a <b>raid</b> on a room of
+  the dungeon to attempt to bypass the dungeon's defenses and score points by
+  foiling the Overlord's plans.
+</p>
+<p>
+  The objective of the game for both players is to score seven points. The
+  Overlord scores points by leveling up their scheme cards, while the Champion
+  scores points by initiating raids and stopping those schemes. The Champion
+  also loses the game if they take too much damage (see
+  <a href="#damage">Damage</a>
+  below), and both players lose the game if they must draw a card from an empty
+  deck.
+</p>
+
+<h2>Schools of Magic</h2>
+<p>
+  In the world of <i>Spelldawn</i>, certain rare individuals can call upon
+  powerful magical forces in order to accomplish their goals. Each person is
+  primarily attuned to one of the three great <b>schools</b> of magic, allowing
+  them to channel it into their spells for good or evil. Each card has a school
+  associated with it and these are important for deckbuilding (see
+  <a href="#">Deckbuilding</a> below).
+</p>
+
+<p>The schools of magic are:</p>
+<ul>
+  <li><b>Law:</b> The magic of logic and order.</li>
+  <li><b>Primal:</b> The magic of instinct and nature.</li>
+  <li><b>Shadow:</b> The magic of deception and darkness.</li>
+</ul>
+
+<p>
+  In addition to the three schools, some cards have no school affiliation. These
+  are called <b>neutral</b> cards and can be used in any deck.
+</p>
+
+<h2>Game Overview</h2>
+
+<p>
+  To start a game of <i>Spelldawn</i>, each player reveals their
+  <b>Identity Card</b> to their opponent, a special card in play which can grant
+  unique abilities throughout a game. Each player starts the game with 5 mana
+  and draws 5 cards from their deck to form a starting hand. After drawing
+  starting hands, the Overlord may choose to <b>mulligan</b> their hand,
+  shuffling it back into their deck and drawing 5 new cards. After the Overlord
+  has decided, the Champion decides whether to mulligan as well. The game then
+  proceeds to the Overlord's first turn.
+</p>
+
+<p>
+  The play area in <i>Spelldawn</i> is broken up into eight distinct areas
+  called <b>Rooms</b>.  These represent the different places within the
+  Overlord's dungeon in which they enact their plans.
+</p>
+
+<img src="/assets/images/sampleGame.png" />
+
+<p>
+  Three of the rooms are for a special purpose, called <b>Inner Rooms</b>:
+</p>
+
+<ul>
+  <li>The <b>Sanctum</b> is a room which gives access to a card in the Overlord's
+  hand</li>
+  <li>The <b>Vault</b> is a room which controls access to the top card of
+  Overlord's deck</li>
+  <li>The <b>Crypts</b> give access to cards which the Overlord has discarded
+  over the course of a game.</li>
+</ul>
+
+<p>
+  The user interface provides access to various features to enable game actions
+  to be taken and for the state of different game zones to be inspected. Some of
+  the different options are shown here:
+</p>
+
+<img src="/assets/images/sampleGameTooltips.png" />
+
+<h2>Overlord Cards</h2>
+
+<h3>Identity</h3>
+
+<spelldawn-card
+  name="Aphir Stoneheart"
+  image="Enixion/Fantasy%20Art%20Pack%202/Resized/3.png"
+  school="Shadow"
+  rarity="Common"
+>
+  <p>Your Projects cost +1{M} to destroy.</p>
+</spelldawn-card>
+
+<h3>Spells</h3>
+
+<spelldawn-card
+  name="Overwhelming Power"
+  image="Rexard/SpellBookMegapack/SpellBookPage01/SpellBook01_92.PNG"
+  school="Law"
+  manaCost="10"
+  rarity="Uncommon"
+  curveTitleText="true"
+>
+  <p>Gain 15{M}.</p>
+</spelldawn-card>
+
+<h3>Schemes</h3>
+
+<h3>Minions</h3>
+
+<h3>Projects</h3>
+
+<h2>Champion Cards</h2>
+
+<h3>Identity</h3>
+
+<spelldawn-card
+  name="Suncaller Viessa"
+  image="Enixion/Fantasy%20Art%20Pack%202/Resized/2.png"
+  school="Primal"
+  rarity="Common"
+>
+  <p><b>{#}Dawn:</b> If you have no cards in hand, draw a card.</p>
+</spelldawn-card>
+
+<h3>Weapons</h3>
+
+<h3>Artifacts</h3>
+
+<h3>Spells</h3>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h2>Cards</h2>
 
 <spelldawn-card
   name="Fire Goblin"
   image="Rexard/MonstersAvatarIcons/png/70.PNG"
   manaCost="1"
-  school="Time"
+  school="Neutral"
   rarity="Common"
   faction="Infernal"
   health="1"
@@ -24,7 +194,7 @@ sidebar_sort_order: 1
   name="Fire Goblin"
   image="Rexard/MonstersAvatarIcons/png/70.PNG"
   manaCost="1"
-  school="Time"
+  school="Neutral"
   rarity="Common"
   faction="Infernal"
   health="1"

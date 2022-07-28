@@ -1,8 +1,8 @@
 export enum School {
   Neutral = 'Neutral',
+  Law = 'Law',
+  Primal = 'Primal',
   Shadow = 'Shadow',
-  Nature = 'Nature',
-  Time = 'Time',
 }
 
 export enum Rarity {

@@ -26,6 +26,10 @@ export class SpelldawnCardTitle extends LitElement {
       font-size: 0.85rem;
     }
 
+    .smallText {
+      font-size: 0.7rem !important;
+    }
+
     #svg {
       position: absolute;
       width: 10rem;
@@ -108,8 +112,8 @@ export class SpelldawnCardTitle extends LitElement {
         </svg>
       `;
     } else {
-      titleText = html`<span id="text" class=${this.factionClass()}
-        >${this.name}</span
+      let smallText = window.innerWidth > 700 ? "" : "smallText";
+      titleText = html`<span id="text" class="${this.factionClass()} ${smallText}">${this.name}</span
       >`;
     }
     return html`

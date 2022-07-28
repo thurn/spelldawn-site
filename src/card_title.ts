@@ -86,7 +86,8 @@ export class SpelldawnCardTitle extends LitElement {
 
   override render() {
     let titleText = null;
-    if (this.curveText) {
+    if (this.curveText && window.innerWidth > 700) {
+      // Not really sure why this doesn't work on small screens
       titleText = html`
         <svg id="svg">
           <path
@@ -94,10 +95,7 @@ export class SpelldawnCardTitle extends LitElement {
             d="M -50 50 C 100 25, 100 25, 250 50"
             fill="transparent"
           />
-          <text
-            id="text"
-            class=${this.factionClass()}
-          >
+          <text id="text" class=${this.factionClass()}>
             <textPath
               alignment-baseline="top"
               xlink:href="#curve"
@@ -110,7 +108,9 @@ export class SpelldawnCardTitle extends LitElement {
         </svg>
       `;
     } else {
-      titleText = html`<span id="text" class=${this.factionClass()}>${this.name}</span>`
+      titleText = html`<span id="text" class=${this.factionClass()}
+        >${this.name}</span
+      >`;
     }
     return html`
       <img id="titleBackground" src=${getTitleBackground()} />

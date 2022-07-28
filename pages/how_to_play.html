@@ -86,23 +86,27 @@ sidebar_sort_order: 1
 
 <p>
   The play area in <i>Spelldawn</i> is broken up into eight distinct areas
-  called <b>Rooms</b>.  These represent the different places within the
+  called <b>Rooms</b>. These represent the different places within the
   Overlord's dungeon in which they enact their plans.
 </p>
 
 <img src="/assets/images/sampleGame.png" />
 
-<p>
-  Three of the rooms are for a special purpose, called <b>Inner Rooms</b>:
-</p>
+<p>Three of the rooms are for a special purpose, called <b>Inner Rooms</b>:</p>
 
 <ul>
-  <li>The <b>Sanctum</b> is a room which gives access to a card in the Overlord's
-  hand</li>
-  <li>The <b>Vault</b> is a room which controls access to the top card of
-  Overlord's deck</li>
-  <li>The <b>Crypts</b> give access to cards which the Overlord has discarded
-  over the course of a game.</li>
+  <li>
+    The <b>Sanctum</b> is a room which gives access to a card in the Overlord's
+    hand
+  </li>
+  <li>
+    The <b>Vault</b> is a room which controls access to the top card of
+    Overlord's deck
+  </li>
+  <li>
+    The <b>Crypts</b> give access to cards which the Overlord has discarded over
+    the course of a game.
+  </li>
 </ul>
 
 <p>
@@ -115,29 +119,74 @@ sidebar_sort_order: 1
 
 <h2>Overlord Cards</h2>
 
+<p>
+  There are five types of Overlord cards: identities, spells, schemes, minions,
+  and projects. All cards except the identity card are shuffled into the
+  Overlord deck at the start of the game. Overlord permanent cards are played
+  face down into different Rooms.
+</p>
+
 <h3>Identity</h3>
 
-<spelldawn-card
-  name="Aphir Stoneheart"
-  image="Enixion/Fantasy%20Art%20Pack%202/Resized/3.png"
-  school="Shadow"
-  rarity="Common"
->
-  <p>Your Projects cost +1{M} to destroy.</p>
-</spelldawn-card>
+<div class="card-image-row right-card">
+  <div class="card-image-text">
+    The identity card defines who the Overlord is in the universe of
+    <i>Spelldawn</i>. It influences the
+    <a href="#Deckbuilding">Deckbuilding</a> rules for the Overlord player,
+    controlling the School to which cards in the deck must belong and how many
+    cards are allowed from competing Schools. Identity cards start the game in
+    play, and provide abilities which are active throughout the game.
+
+    <h4>Icons:</h4>
+
+    <div class="card-icon-row">
+      <spelldawn-icon
+        iconType="OverlordCompetingSchools"
+        value="6"
+      ></spelldawn-icon>
+      <b>Competing school cards allowed in deck</b>
+    </div>
+  </div>
+
+  <spelldawn-card
+    name="Aphir Stoneheart"
+    image="Enixion/Fantasy%20Art%20Pack%202/Resized/3.png"
+    school="Shadow"
+    rarity="Common"
+    overlordCompetingSchools="6"
+  >
+    <p>Your Projects cost +1{M} to destroy.</p>
+  </spelldawn-card>
+</div>
 
 <h3>Spells</h3>
 
-<spelldawn-card
-  name="Overwhelming Power"
-  image="Rexard/SpellBookMegapack/SpellBookPage01/SpellBook01_92.PNG"
-  school="Law"
-  manaCost="10"
-  rarity="Uncommon"
-  curveTitleText="true"
->
-  <p>Gain 15{M}.</p>
-</spelldawn-card>
+<div class="card-image-row left-card">
+  <spelldawn-card
+    name="Overwhelming Power"
+    image="Rexard/SpellBookMegapack/SpellBookPage01/SpellBook01_92.PNG"
+    school="Law"
+    manaCost="10"
+    rarity="Uncommon"
+    curveTitleText="true"
+  >
+    <p>Gain 15{M}.</p>
+  </spelldawn-card>
+
+  <div class="card-image-text">
+    Spell cards represent one-time effects. They're always revealed when played
+    and then discarded. The Overlord must pay the listed mana cost of the spell,
+    and then the abilities are resolved in order. Once complete, the card is
+    moved to the Crypts.
+
+    <h4>Icons:</h4>
+
+    <div class="card-icon-row">
+      <spelldawn-icon iconType="Mana" value="10"></spelldawn-icon>
+      <b>Mana cost of the spell</b>
+    </div>
+  </div>
+</div>
 
 <h3>Schemes</h3>
 

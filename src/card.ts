@@ -1,19 +1,11 @@
 import {LitElement, html, css} from 'lit';
-import {
-  customElement,
-  property,
-  queryAssignedNodes,
-  queryAssignedElements,
-} from 'lit/decorators.js';
+import {customElement, property, queryAssignedNodes} from 'lit/decorators.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
 import {School, Rarity, Faction} from './primitives';
-import {
-  getCardFrame,
-  getCardImage,
-  fantasyCards,
-  elementalCards,
-} from './assets';
+import {getCardFrame, getCardImage, fantasyCards} from './assets';
 import './card_title';
+import './card_icon';
+import {CardIconType} from './card_icon';
 
 @customElement('spelldawn-card')
 export class SpelldawnCard extends LitElement {
@@ -23,7 +15,7 @@ export class SpelldawnCard extends LitElement {
       width: 10rem;
       height: 15rem;
       display: inline-block;
-      margin: 0.5rem 1rem;
+      margin: 1rem 1rem;
     }
 
     ::slotted(*) {
@@ -31,7 +23,7 @@ export class SpelldawnCard extends LitElement {
       padding: 0 !important;
     }
 
-    #container {
+    #cardContainer {
       position: absolute;
     }
 
@@ -61,6 +53,11 @@ export class SpelldawnCard extends LitElement {
       left: 0;
     }
 
+    #topRight {
+      top: 0;
+      left: 8rem;
+    }
+
     #bottomLeft {
       top: 12.5rem;
       left: -0.5rem;
@@ -87,29 +84,6 @@ export class SpelldawnCard extends LitElement {
       height: 3.4rem;
       top: 10.9rem;
       left: 1.75rem;
-    }
-
-    .cardIcon {
-      position: absolute;
-    }
-
-    .iconBackground {
-      position: absolute;
-      width: 2.5rem;
-      margin-top: 0.8rem;
-    }
-
-    .iconText {
-      position: absolute;
-      font-family: 'Impact';
-      color: white;
-      top: 0.8rem;
-      left: 0.25rem;
-      text-shadow: black 0px 0px 3px, black 0px 0px 3px, black 0px 0px 3px,
-        black 0px 0px 3px;
-      text-align: center;
-      font-size: 1.7rem;
-      width: 2rem;
     }
   `;
 
@@ -145,6 +119,9 @@ export class SpelldawnCard extends LitElement {
 
   @property({type: Number})
   schemePoints?: number;
+
+  @property({type: Number})
+  overlordCompetingSchools?: number;
 
   @property({type: Boolean})
   curveTitleText: boolean = false;
@@ -203,7 +180,7 @@ export class SpelldawnCard extends LitElement {
     }
 
     return html`
-      <div id="container">
+      <div id="cardContainer">
         ${image}
         <img id="frame" src=${getCardFrame(this.school)} />
         <spelldawn-card-title
@@ -213,38 +190,41 @@ export class SpelldawnCard extends LitElement {
         >
         </spelldawn-card-title>
         <img id="rarity" src=${this.rarityJewel()} />
-        ${this.cardIcon(
-          'topLeft',
-          fantasyCards('Icons/Icon_Mana_Color_01.png'),
-          this.manaCost
-        )}
-        ${this.cardIcon(
-          'topLeft',
-          fantasyCards('Number_Back/Number_Back_Color_3'),
-          this.levelRequirement
-        )}
-        ${this.cardIcon(
-          'bottomRight',
-          elementalCards('Heart_Icons/Heart_Icons_Color_5.png'),
-          this.health
-        )}
-        ${this.cardIcon(
-          'bottomRight',
-          elementalCards('Attack_Icons/Attack_Icons_Color_4'),
-          this.baseAttack
-        )}
-        ${this.cardIcon(
-          'bottomRight',
-          elementalCards(
-            'Card_Color_07/Back_Card_Color_07/Back_Card_Color_07_Logo_Crystal'
-          ),
-          this.schemePoints
-        )}
-        ${this.cardIcon(
-          'bottomLeft',
-          elementalCards('Number_Icons/Number_Icons_Color_6.png'),
-          this.shield
-        )}
+        <spelldawn-icon
+          id="topLeft"
+          iconType=${CardIconType.Mana}
+          value=${ifDefined(this.manaCost)}
+        ></spelldawn-icon>
+        <spelldawn-icon
+          id="topLeft"
+          iconType=${CardIconType.LevelRequirement}
+          value=${ifDefined(this.levelRequirement)}
+        ></spelldawn-icon>
+        <spelldawn-icon
+          id="topRight"
+          iconType=${CardIconType.OverlordCompetingSchools}
+          value=${ifDefined(this.overlordCompetingSchools)}
+        ></spelldawn-icon>
+        <spelldawn-icon
+          id="bottomRight"
+          iconType=${CardIconType.Health}
+          value=${ifDefined(this.health)}
+        ></spelldawn-icon>
+        <spelldawn-icon
+          id="bottomRight"
+          iconType=${CardIconType.Attack}
+          value=${ifDefined(this.baseAttack)}
+        ></spelldawn-icon>
+        <spelldawn-icon
+          id="bottomRight"
+          iconType=${CardIconType.Points}
+          value=${ifDefined(this.schemePoints)}
+        ></spelldawn-icon>
+        <spelldawn-icon
+          id="bottomLeft"
+          iconType=${CardIconType.Shield}
+          value=${ifDefined(this.shield)}
+        ></spelldawn-icon>
         <div id="cardText">
           <span id="cardTextSpan"><slot></slot></span>
         </div>

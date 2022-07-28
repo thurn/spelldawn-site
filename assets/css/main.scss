@@ -17,3 +17,40 @@ $sidebar-sticky: false;
   margin-top: 2rem;
   font-size: 0.6rem;
 }
+
+.card-image-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image-row.left-card {
+  flex-wrap: wrap;
+}
+
+.card-image-row.right-card {
+  flex-wrap: wrap-reverse;
+}
+
+.card-image-row .card-image-text {
+  max-width: 25rem;
+}
+
+.card-image-row h4 {
+  padding-bottom: 1rem;
+}
+
+.card-icon-row {
+  display: flex;
+  height: 3rem;
+}
+
+.card-icon-row spelldawn-icon {
+  position: relative;
+  top: -1.4rem;
+}
+
+.card-icon-row b {
+  position: relative;
+  left: 3rem;
+}

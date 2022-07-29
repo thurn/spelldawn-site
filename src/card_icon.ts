@@ -10,6 +10,7 @@ export enum CardIconType {
   LevelRequirement = 'LevelRequirement',
   Points = 'Points',
   OverlordCompetingSchools = 'OverlordCompetingSchools',
+  ChampionCompetingSchools = 'ChampionCompetingSchools',
 }
 
 @customElement('spelldawn-icon')
@@ -26,7 +27,14 @@ export class SpelldawnCardIcon extends LitElement {
     .iconBackground {
       position: absolute;
       width: 2.5rem;
+    }
+
+    .defaultIconOffset {
       margin-top: 0.8rem;
+    }
+
+    .tallIconOffset {
+      margin-top: 0.6rem;
     }
 
     .iconText {
@@ -56,18 +64,22 @@ export class SpelldawnCardIcon extends LitElement {
       case CardIconType.Health:
         return elementalCards('Heart_Icons/Heart_Icons_Color_5.png');
       case CardIconType.Attack:
-        return elementalCards('Attack_Icons/Attack_Icons_Color_4');
+        return elementalCards('Attack_Icons/Attack_Icons_Color_4.png');
       case CardIconType.Shield:
         return elementalCards('Number_Icons/Number_Icons_Color_6.png');
       case CardIconType.LevelRequirement:
-        return fantasyCards('Number_Back/Number_Back_Color_3');
+        return elementalCards('Number_Back/Number_Back_Color_3.png');
       case CardIconType.Points:
         return elementalCards(
-          'Card_Color_07/Back_Card_Color_07/Back_Card_Color_07_Logo_Crystal'
+          'Card_Color_07/Back_Card_Color_07/Back_Card_Color_07_Logo_Crystal.png'
         );
       case CardIconType.OverlordCompetingSchools:
         return elementalCards(
           'Card_Color_15/Face_Card_Color_15/Face_Card_Color_15_Logo_Back.png'
+        );
+      case CardIconType.ChampionCompetingSchools:
+        return elementalCards(
+          'Card_Color_06/Face_Card_Color_06/Face_Card_Color_06_Number_Back.png'
         );
       default:
         return '';
@@ -76,9 +88,16 @@ export class SpelldawnCardIcon extends LitElement {
 
   override render() {
     if (this.value !== undefined) {
+      let iconOffset =
+        this.iconType === CardIconType.Attack
+          ? 'tallIconOffset'
+          : 'defaultIconOffset';
       return html`
         <div class="cardIcon">
-          <img class="iconBackground" src=${this.getIconBackground()} />
+          <img
+            class="iconBackground ${iconOffset}"
+            src=${this.getIconBackground()}
+          />
           <span class="iconText">${this.value}</span>
         </div>
       `;

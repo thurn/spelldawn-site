@@ -50,7 +50,7 @@ export class SpelldawnCard extends LitElement {
 
     #topLeft {
       top: 0;
-      left: 0;
+      left: -0.25rem;
     }
 
     #topRight {
@@ -79,8 +79,8 @@ export class SpelldawnCard extends LitElement {
       overflow-wrap: break-word;
       text-align: center;
       font-size: 0.6rem;
-      line-height: 0.7rem;
-      width: 6.5rem;
+      line-height: 0.75rem;
+      width: 6.6rem;
       height: 3.4rem;
       top: 10.9rem;
       left: 1.75rem;
@@ -123,6 +123,9 @@ export class SpelldawnCard extends LitElement {
   @property({type: Number})
   overlordCompetingSchools?: number;
 
+  @property({type: Number})
+  championCompetingSchools?: number;
+
   @property({type: Boolean})
   curveTitleText: boolean = false;
 
@@ -162,10 +165,14 @@ export class SpelldawnCard extends LitElement {
         e.innerHTML = e.innerHTML.replace('{#}', '<i class="fas fa-bolt"></i>');
         e.innerHTML = e.innerHTML.replace('{M}', '<i class="fas fa-fire"></i>');
         e.innerHTML = e.innerHTML.replace(
+          '{-}',
+          '<i class="fas fa-long-arrow-alt-right"></i>'
+        );
+        e.innerHTML = e.innerHTML.replace(
           '{A}',
           '<i class="fas fa-hourglass"></i>'
         );
-      }
+      };
     }
   }
 
@@ -204,6 +211,11 @@ export class SpelldawnCard extends LitElement {
           id="topRight"
           iconType=${CardIconType.OverlordCompetingSchools}
           value=${ifDefined(this.overlordCompetingSchools)}
+        ></spelldawn-icon>
+        <spelldawn-icon
+          id="topRight"
+          iconType=${CardIconType.ChampionCompetingSchools}
+          value=${ifDefined(this.championCompetingSchools)}
         ></spelldawn-icon>
         <spelldawn-icon
           id="bottomRight"

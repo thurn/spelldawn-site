@@ -31,22 +31,23 @@ sidebar_sort_order: 1
 </p>
 <p>
   Players in <i>Spelldawn</i> alternate taking turns, always beginning with the
-  Overlord. During a player's turn, they have three <b>action points</b> to
-  spend on a variety of possible game effects such as gaining mana, drawing
-  cards, and playing cards. The Overlord can play and level up their scheme
-  cards in the rooms of the dungeon in order to score points, while deploying
-  minions to defend them. The Champion can initiate a <b>raid</b> on a room of
-  the dungeon to attempt to bypass the dungeon's defenses and score points by
-  foiling the Overlord's plans.
+  Overlord. During a player's turn, they have three
+  <b>action points (<i class="fas fa-hourglass"></i>)</b> to spend on a variety
+  of possible game effects such as gaining
+  <b>mana (<i class="fas fa-fire"></i>)</b>, drawing cards, and playing cards.
+  The Overlord can play and level up their scheme cards in the rooms of the
+  dungeon in order to score points, while deploying minions to defend them. The
+  Champion can initiate a <b>raid</b> on a room of the dungeon to attempt to
+  bypass the dungeon's defenses and score points by foiling the Overlord's
+  plans.
 </p>
 <p>
   The objective of the game for both players is to score seven points. The
   Overlord scores points by leveling up their scheme cards, while the Champion
   scores points by initiating raids and stopping those schemes. The Champion
   also loses the game if they take too much damage (see
-  <a href="#damage">Damage</a>
-  below), and both players lose the game if they must draw a card from an empty
-  deck.
+  <a href="#damage">Damage</a> below), and both players lose the game if they
+  must draw a card from an empty deck.
 </p>
 
 <h2>Schools of Magic</h2>
@@ -75,7 +76,7 @@ sidebar_sort_order: 1
 
 <p>
   To start a game of <i>Spelldawn</i>, each player reveals their
-  <b>Identity Card</b> to their opponent, a special card in play which can grant
+  <b>identity card</b> to their opponent, a special card in play which can grant
   unique abilities throughout a game. Each player starts the game with 5 mana
   and draws 5 cards from their deck to form a starting hand. After drawing
   starting hands, the Overlord may choose to <b>mulligan</b> their hand,
@@ -92,7 +93,7 @@ sidebar_sort_order: 1
 
 <img src="/assets/images/sampleGame.png" />
 
-<p>Three of the rooms are for a special purpose, called <b>Inner Rooms</b>:</p>
+<p>Three of the rooms are for a special purpose, called <b>inner rooms</b>:</p>
 
 <ul>
   <li>
@@ -109,6 +110,8 @@ sidebar_sort_order: 1
   </li>
 </ul>
 
+<p>Other rooms are referred to as <b>outer rooms</b>.</p>
+
 <p>
   The user interface provides access to various features to enable game actions
   to be taken and for the state of different game zones to be inspected. Some of
@@ -123,20 +126,25 @@ sidebar_sort_order: 1
   There are five types of Overlord cards: identities, spells, schemes, minions,
   and projects. All cards except the identity card are shuffled into the
   Overlord deck at the start of the game. Overlord permanent cards are played
-  face down into different Rooms.
+  face down into different rooms.
 </p>
 
 <h3>Identity</h3>
 
 <div class="card-image-row right-card">
   <div class="card-image-text">
-    <p>The identity card defines who the Overlord is in the universe of
-    <i>Spelldawn</i>. It influences the
-    <a href="#Deckbuilding">Deckbuilding</a> rules for the Overlord player,
-    controlling the School to which cards in the deck must belong and how many
-    cards are allowed from competing Schools.</p>
+    <p>
+      The identity card defines who the Overlord is in the universe of
+      <i>Spelldawn</i>. It influences the
+      <a href="#Deckbuilding">Deckbuilding</a> rules for the Overlord player,
+      controlling the school to which cards in the deck must belong and how many
+      cards are allowed from competing schools.
+    </p>
 
-    <p>Identity cards start the game in play, and provide abilities which are active throughout the game.</p>
+    <p>
+      Identity cards start the game in play, and provide abilities which are
+      active throughout the game.
+    </p>
 
     <h4>Icons:</h4>
 
@@ -191,28 +199,248 @@ sidebar_sort_order: 1
 
 <h3>Schemes</h3>
 
+<div class="card-image-row right-card">
+  <div class="card-image-text">
+    <p>
+      Scheme cards represent the Overlord's evil machinations to bring about
+      their master plan. They are the only cards in <i>Spelldawn</i> that are
+      worth scheme points.
+    </p>
+
+    <p>
+      The Overlord plays scheme cards face-down in outer rooms. Each scheme has
+      a level requirement that must be met before the Overlord can score that
+      card (see <a href="#Leveling_Up">Leveling Up a Card</a>). There can only
+      ever be one scheme <b>or</b> one project in a room at a given time.
+      Schemes have a <b><i class="fas fa-bolt"></i>Score</b> ability which
+      resolves when the Overlord meets the level requirement.
+    </p>
+
+    <h4>Icons:</h4>
+
+    <div class="card-icon-row">
+      <spelldawn-icon iconType="LevelRequirement" value="4"></spelldawn-icon>
+      <b>Level required to score</b>
+    </div>
+
+    <div class="card-icon-row">
+      <spelldawn-icon iconType="Points" value="2"></spelldawn-icon>
+      <b>Points value</b>
+    </div>
+  </div>
+
+  <spelldawn-card
+    name="Gold Mine"
+    image="Rexard/FairytaleIconsMegapack/MiningIcons/MiningIcons_bg/MiningIcons_08_b.PNG"
+    school="Neutral"
+    rarity="Common"
+    levelRequirement="4"
+    schemePoints="2"
+  >
+    <p>{#}Score: Gain 7{M}.</p>
+  </spelldawn-card>
+</div>
+
 <h3>Minions</h3>
+
+<div class="card-image-row left-card">
+  <spelldawn-card
+    name="Fire Goblin"
+    image="Rexard/MonstersAvatarIcons/png/70.PNG"
+    manaCost="1"
+    school="Primal"
+    rarity="Common"
+    faction="Infernal"
+    health="1"
+    shield="2"
+  >
+    <p><b>{#}Combat:</b> Deal 1 damage. Gain 1 {M}.</p>
+  </spelldawn-card>
+
+  <div class="card-image-text">
+    <p>
+      Minions are cards that the Overlord plays in order to defend the rooms of
+      the dungeon against the Champion. Minions are played face down and are
+      automatically <b>summoned</b> during a raid by paying their mana cost, if
+      the Overlord has sufficient mana available.
+    </p>
+
+    <p>
+      Each minion has a <b><i class="fas fa-bolt"></i>Combat</b> ability which
+      fires if the Champion is unable to defeat this minion in combat during a
+      raid, as well as a <b>health</b> and optionally a <b>shield</b> value. See
+      the <a href="#Minions">Minions</a> section below for more information.
+    </p>
+
+    <h4>Icons:</h4>
+
+    <div class="card-icon-row">
+      <spelldawn-icon iconType="Health" value="1"></spelldawn-icon>
+      <b>Health value</b>
+    </div>
+    <div class="card-icon-row">
+      <spelldawn-icon iconType="Shield" value="2"></spelldawn-icon>
+      <b>Shield value</b>
+    </div>
+  </div>
+</div>
 
 <h3>Projects</h3>
 
+<div class="card-image-row right-card">
+  <div class="card-image-text">
+    <p>
+      Projects provide the Overlord with resources in order to further their
+      objectives. They're played in outer rooms in the same manner as schemes.
+      projects specify their <b>Unveil</b> trigger which causes them to be
+      turned face up <i>if</i> the Overlord has sufficient mana available to pay
+      their listed mana cost.
+    </p>
+
+    <p>
+      Some projects with the <b>Level Up</b> keyword can be leveled up in the
+      same manner as schemes, in order to mislead the Champion. When the
+      Champion accesses a project they can <b>destroy</b> it by paying mana
+      equal to its mana cost.
+    </p>
+  </div>
+
+  <spelldawn-card
+    name="Coinery"
+    image="Rexard/FantasyIconsMegaPack/LootIcons/LootIcons_png/black/coins_b_03.png"
+    school="Shadow"
+    rarity="Rare"
+    manaCost="2"
+  >
+    <p><b>Unveil</b> when activated, then <b>Store</b> 15{M}.</p>
+    <p>{A} {-} Take 3{M}.</p>
+  </spelldawn-card>
+</div>
+
 <h2>Champion Cards</h2>
+
+<p>
+  There are four types of Champion cards: identities, weapons, artifacts, and
+  spells. As with the Overlord, the non-identity cards are shuffled together to
+  create the Champion's deck. Champion cards are always played face-up.
+</p>
 
 <h3>Identity</h3>
 
-<spelldawn-card
-  name="Suncaller Viessa"
-  image="Enixion/Fantasy%20Art%20Pack%202/Resized/2.png"
-  school="Primal"
-  rarity="Common"
->
-  <p><b>{#}Dawn:</b> If you have no cards in hand, draw a card.</p>
-</spelldawn-card>
+<div class="card-image-row left-card">
+  <spelldawn-card
+    name="Suncaller Viessa"
+    image="Enixion/Fantasy%20Art%20Pack%202/Resized/2.png"
+    school="Primal"
+    rarity="Common"
+    championCompetingSchools="8"
+  >
+    <p><b>{#}Dawn:</b> If you have no cards in hand, draw a card.</p>
+  </spelldawn-card>
+
+  <div class="card-image-text">
+    <p>
+      As with the Overlord, the Champion's identity card defines the character
+      the Champion is playing as in the current game. The same
+      <a href="#Deckbuilding">Deckbuilding</a> restrictions apply to the
+      Champion deck. The Champion identity card starts the game in play and
+      provides ongoing abilities throughout the game.
+    </p>
+
+    <h4>Icons:</h4>
+
+    <div class="card-icon-row">
+      <spelldawn-icon
+        iconType="ChampionCompetingSchools"
+        value="8"
+      ></spelldawn-icon>
+      <b>Competing school cards allowed</b>
+    </div>
+  </div>
+</div>
 
 <h3>Weapons</h3>
 
+<div class="card-image-row right-card">
+  <div class="card-image-text">
+    <p>
+      Weapons are used by the Champion to defeat the Overlord's minons. The
+      Champion plays weapons by paying their mana cost. During a raid, a weapon
+      can be used to attack and defeat a minion if it is of the correct
+      <a href="#Faction">Faction</a> and its <b>attack value</b> equals or
+      exceeds the minion's health.
+    </p>
+
+    <p>
+      Each weapon starts with a base attack value which is shown on the card.
+      Many weapons also have abilities which can increase their attack value
+      during combat by paying mana.
+    </p>
+
+    <h4>Icons:</h4>
+
+    <div class="card-icon-row">
+      <spelldawn-icon iconType="Attack" value="3"></spelldawn-icon>
+      <b>Base attack value</b>
+    </div>
+  </div>
+
+  <spelldawn-card
+    name="Keen Halberd"
+    image="Rexard/FantasyIconsMegaPack/WeaponsIcons/WeaponsIcons_png/black/polearms/sp_b_04.png"
+    school="Law"
+    rarity="Common"
+    baseAttack="3"
+  >
+    <p>2{M}: +1 Attack</p>
+    <p><b>Breach 1</b></p>
+  </spelldawn-card>
+</div>
+
 <h3>Artifacts</h3>
 
+<div class="card-image-row left-card">
+  <spelldawn-card
+    name="Sky's Reach"
+    image="Rexard/FantasyIconsMegaPack/ArmorIcons/ArmorIcons_png/black/belts/belts_11.png"
+    school="Primal"
+    manaCost="0"
+    rarity="Common"
+  >
+    <p>{#}Dawn: Take 1{M}</p>
+    <p>{A} {-} <b>Store</b> 3{M}</p>
+  </spelldawn-card>
+
+  <div class="card-image-text">
+    Artifacts provide a variety of additional tools for the Champion to draw
+    upon. The Champion plays artifacts by paying their mana cost, and like
+    weapons they enter play face-up and stay in play permanently (or until
+    destroyed).
+  </div>
+</div>
+
 <h3>Spells</h3>
+
+<div class="card-image-row right-card">
+  <div class="card-image-text">
+    As with the Overlord, the Champoin can wield Spell cards to apply one-time
+    effects, paying their listed mana cost, resolving the effects in order, and
+    then placing them into the discard pile.
+  </div>
+
+  <spelldawn-card
+    name="Charged Strike"
+    image="Rexard/SpellBookMegapack/SpellBookPage01/SpellBook01_67.png"
+    school="Shadow"
+    manaCost="1"
+    rarity="Rare"
+
+  >
+    <p>Initiate a raid. Gain 5{M} to spend during that raid.</p>
+  </spelldawn-card>
+</div>
+
+<h2>Game Turn Sequence</h2>
 
 <br />
 <br />
@@ -226,31 +454,5 @@ sidebar_sort_order: 1
 <br />
 
 <h2>Cards</h2>
-
-<spelldawn-card
-  name="Fire Goblin"
-  image="Rexard/MonstersAvatarIcons/png/70.PNG"
-  manaCost="1"
-  school="Neutral"
-  rarity="Common"
-  faction="Infernal"
-  health="1"
-  shield="2"
->
-  <p><b>{#}Combat:</b> Deal 1 damage. Gain 1 {A}.</p>
-</spelldawn-card>
-
-<spelldawn-card
-  name="Fire Goblin"
-  image="Rexard/MonstersAvatarIcons/png/70.PNG"
-  manaCost="1"
-  school="Neutral"
-  rarity="Common"
-  faction="Infernal"
-  health="1"
-  shield="2"
->
-  <p><b>{#}Combat:</b> Deal 1 damage. Gain 1 {M}.</p>
-</spelldawn-card>
 
 <p>More Text</p>

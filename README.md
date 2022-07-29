@@ -1,39 +1,10 @@
-## Welcome to GitHub Pages
+Spelldawn Website
 
-You can use the [editor on GitHub](https://github.com/thurn/spelldawn-site/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-
-## Header 2
-
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/thurn/spelldawn-site/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Development
+* Run 'npm install' to get started
+* Run 'bundle exec jekyll serve' to start a server which watches for and re-renders HTML content
+* In a separate terminal, run 'npm run build:watch' to run the typescript compiler in watch mode
+* In another separate terminal, run 'rollup -c --watch' to automatically bundle compiled code
+* GitHub pages use Jekyll for site templating: https://jekyllrb.com/
+* Site template is https://github.com/fongandrew/hydeout
+* Dynamic content is provided by the Lit web framework: https://lit.dev/

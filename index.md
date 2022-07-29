@@ -8,6 +8,9 @@ layout: page
 
 Spelldawn is a trading card game. As you play, you will collect cards which you can trade with other players, putting an emphasis on your ability to build decks with the cards you have instead of following an existing metagame. Periodic "seasons" will encourage you to start this process over with an empty collection.
 
-The game is open source under the Apache License 2.0, although the client uses proprietary art assets under the terms of the Unity Asset Store License. Spelldawn is 100% free to play.
+The game is open source under the Apache License 2.0, although the client uses
+proprietary art assets under the terms of the Unity Asset Store License.
+Spelldawn is and always will be 100% free to play and will never sell cards in exchange for
+real money.
 
 To learn more, check out the [How to Play](/pages/how_to_play.html) page. To get involved in contributing to the project see, see [Contributing](/pages/contributing.html). For information about how to follow progress on the project, look at the [Community](/pages/community.html) section.

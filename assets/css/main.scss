@@ -7,6 +7,11 @@ $sidebar-sticky: false;
 
 @import "hydeout";
 
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
 #sidebar {
   .site-title {
     font-family: 'Bona Nova', serif;
@@ -76,4 +81,49 @@ $sidebar-sticky: false;
 .card-icon-row b {
   position: relative;
   left: 3rem;
+}
+
+// CSS from https://www.roberthorvick.com/blog/dynamically-creating-table-of-contents-from-anchorjs-elements
+
+#table-of-contents {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    padding: 1rem;
+    width: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media(min-width: 60rem)  {
+  #table-of-contents {
+    float: right;
+    margin-left: 1rem;
+    max-width: 35%;
+  }
+}
+
+@media(min-width: 90rem)  {
+  #table-of-contents {
+    margin-right: -10rem;
+  }
+}
+
+
+#toc-header {
+    font-weight: 900;
+    font-size: 125%;
+}
+
+#table-of-contents li, #table-of-contents ul, #table-of-contents ul li{
+    list-style: outside none none !important;
+}
+
+li.toc-li-H2 {
+    margin-left: 0.5rem;
+}
+
+li.toc-li-H3 {
+    margin-left: 1rem;
+    font-size: 85%;
 }

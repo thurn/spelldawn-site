@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {getTitleBackground} from './assets';
-import {Faction} from './primitives';
+import {Lineage} from './primitives';
 
 @customElement('spelldawn-card-title')
 export class SpelldawnCardTitle extends LitElement {
@@ -57,7 +57,7 @@ export class SpelldawnCardTitle extends LitElement {
       color: #c2185b;
     }
 
-    .noFaction {
+    .noLineage {
       color: #000000;
     }
   `;
@@ -66,25 +66,25 @@ export class SpelldawnCardTitle extends LitElement {
   name?: string;
 
   @property()
-  faction?: Faction;
+  lineage?: Lineage;
 
   @property({type: Boolean})
   curveText: boolean = false;
 
   factionClass(): string {
-    switch (this.faction) {
-      case Faction.Abyssal:
+    switch (this.lineage) {
+      case Lineage.Abyssal:
         return 'abyssal';
-      case Faction.Infernal:
+      case Lineage.Infernal:
         return 'infernal';
-      case Faction.Mortal:
+      case Lineage.Mortal:
         return 'mortal';
-      case Faction.Prismatic:
+      case Lineage.Prismatic:
         return 'prismatic';
-      case Faction.Construct:
+      case Lineage.Construct:
         return 'construct';
       default:
-        return 'noFaction';
+        return 'noLineage';
     }
   }
 
@@ -112,8 +112,11 @@ export class SpelldawnCardTitle extends LitElement {
         </svg>
       `;
     } else {
-      let smallText = window.innerWidth > 700 ? "" : "smallText";
-      titleText = html`<span id="text" class="${this.factionClass()} ${smallText}">${this.name}</span
+      let smallText = window.innerWidth > 700 ? '' : 'smallText';
+      titleText = html`<span
+        id="text"
+        class="${this.factionClass()} ${smallText}"
+        >${this.name}</span
       >`;
     }
     return html`

@@ -12,7 +12,7 @@ export enum Rarity {
   Epic = 'Epic',
 }
 
-export enum Faction {
+export enum Lineage {
   Mortal = 'Mortal',
   Infernal = 'Infernal',
   Abyssal = 'Abyssal',

@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property, queryAssignedNodes} from 'lit/decorators.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
-import {School, Rarity, Faction} from './primitives';
+import {School, Rarity, Lineage} from './primitives';
 import {getCardFrame, getCardImage, fantasyCards} from './assets';
 import './card_title';
 import './card_icon';
@@ -103,7 +103,7 @@ export class SpelldawnCard extends LitElement {
   rarity?: Rarity;
 
   @property()
-  faction?: Faction;
+  lineage?: Lineage;
 
   @property({type: Number})
   health?: number;
@@ -191,7 +191,7 @@ export class SpelldawnCard extends LitElement {
         ${image}
         <img id="frame" src=${getCardFrame(this.school)} />
         <spelldawn-card-title
-          faction=${ifDefined(this.faction)}
+          lineage=${ifDefined(this.lineage)}
           name=${ifDefined(this.name)}
           ?curvetext=${this.curveTitleText}
         >

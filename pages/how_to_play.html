@@ -115,7 +115,7 @@ sidebar_sort_order: 1
 
 <p>The schools of magic are:</p>
 <ul>
-  <li><b>Law:</b> The magic of logic and order.</li>
+  <li><b>Law:</b> The magic of organization and order.</li>
   <li><b>Primal:</b> The magic of instinct and nature.</li>
   <li><b>Shadow:</b> The magic of deception and darkness.</li>
 </ul>
@@ -254,7 +254,7 @@ sidebar_sort_order: 1
     manaCost="1"
     school="Primal"
     rarity="Common"
-    faction="Infernal"
+    lineage="Infernal"
     health="1"
     shield="2"
   >
@@ -372,7 +372,7 @@ sidebar_sort_order: 1
       Weapons are used by the Champion to defeat the Overlord's minons. The
       Champion plays weapons by paying their mana cost. During a raid, a weapon
       can be used to attack and defeat a minion if it is of the correct
-      <a href="#Kingdom">Kingdom</a> and its <b>attack value</b> equals or
+      <a href="#Lineage">Lineage</a> and its <b>attack value</b> equals or
       exceeds the minion's health.
     </p>
 
@@ -395,7 +395,7 @@ sidebar_sort_order: 1
     image="Rexard/FantasyIconsMegaPack/WeaponsIcons/WeaponsIcons_png/black/polearms/sp_b_04.png"
     school="Law"
     rarity="Common"
-    faction="Abyssal"
+    lineage="Abyssal"
     baseAttack="3"
   >
     <p>2{M}: +1 Attack</p>
@@ -605,7 +605,215 @@ sidebar_sort_order: 1
   are no longer above the maximum.
 </p>
 
+<h1>Lineage</h1>
+<p>
+  The world of <i>Spelldawn</i> is undergoing a confluence between three planes
+  of existence. The original terrestrial plane is being overlaid by two other
+  planes, the infernal plane and the abyssal plane, and creatures and items from
+  those other worlds are now passing through into the mortal plane.
+</p>
+
+<p>
+  Thus, there are three main types of weapons and minions in <i>Spelldawn</i>,
+  called the <b>lineage</b> of that card. They are:
+  <ul>
+    <li>
+      <span class="mortal lineage">Mortal</span>: Weapons and creatures from the
+      original prime material plane.
+    </li>
+    <li>
+      <span class="infernal lineage">Infernal</span>: Weapons and creatures from
+      Infernum, a kingdom of flame and soot which exists in a perpetual state of war.
+    </li>
+    <li>
+      <span class="abyssal lineage">Abyssal</span>: Weapons and creatures from The
+      Abyss, the realm of darkness ruled over by the tyrannical ancient Demonlords.
+    </li>
+  </ul>
+</p>
+
+<p>
+  Because of the nature of planar magical resonance, minions can only be damaged
+  by a weapon from a matching lineage -- anyone attempt to wield a mortal weapon
+  against a creature of Infernum will soon discover that their blade simply passes
+  through the enemy like slicing through air!
+</p>
+
+<p>
+  In addition to the main lineage types, some weapons and minions have special
+  properties.
+  <ul>
+    <li>
+      <span class="prismatic lineage">Prismatic</span> weapons are rare and
+      powerful magical artifacts which have the ability to damage enemies from
+      any lineage.
+    </li>
+    <li>
+      <span class="construct lineage">Construct</span> minions are mechanical
+      assemblages which have disadvantage of being able to be damaged by any
+      weapon type.
+    </li>
+  </ul>
+</p>
+
+
 <h1>Raids</h1>
+<p>
+  During a raid, the Champion attacks one of the Overlord's rooms in order to
+  foil their schemes and destroy ongoing projects. They encounter each minion
+  defending the room in sequence, either defeating that minion using their
+  weapons or suffering its combat effects.
+</p>
+<p>
+  Raids are broken up into three phases:
+</p>
+<ol>
+  <li><b>Start of Raid</b> Phase</li>
+  <li><b>Encounter</b> Phase</li>
+  <li><b>Access</b> Phase</li>
+</ol>
+
+<h2>Starting a Raid</h2>
+<p>
+  When a raid is declared on a room, any <b><i class="fas fa-bolt"></i>Raid</b>
+  abilities on cards in play trigger. Next, the game checks if the room is
+  defended by any minions which are face-up or which the Overlord has sufficient
+  mana available to summon. If any such minion exists, the raid proceeds to the
+  Encounter phase, otherwise it moves to the Access phase.
+</p>
+
+<h2>Encounter Phase</h2>
+
+<h3>Approaching Minions</h3>
+
+<p>
+  During the encounter phase, the Champion <b>approaches</b> each minion in the
+  target room in sequence, starting with the outermost minion. If the defending
+  minion is face-down and the Overlord currently has mana available to pay its
+  listed summon cost, the minion is <b>summoned</b>, turning it face up. Any
+  <b><i class="fas fa-bolt"></i>Summon</b> abilities on the card trigger.
+</p>
+
+<p>
+  If the approached minion is face-up, the Champion <b>encounters</b> that
+  minion. Otherwise, the Champion approaches the next minion in sequence, or
+  proceeds to the Access phase if no minions remain.
+</p>
+
+<h3>Encountering a Minion</h3>
+
+<p>
+  When a minion is encountered, the Champion must either <b>defeat</b> the
+  minion or continue and have its <b><i class="fas fa-bolt"></i>Combat</b>
+  ability fire.
+</p>
+
+<p>
+  In order to defeat a minion, the Champion must do two things:
+  <ul>
+    <li>
+      Pay an amount of mana equal to the shield value of the minion, if
+      any. Some card effects such as the <b>Breach</b> keyword reduce the amount
+      that must be paid for shield values.
+    </li>
+    <li>
+      Deal damage to the minion equal to its health value. Weapons with
+      the same lineage type as the minion deal damage equal to their base attack
+      value plus any bonuses from abilities.
+    </li>
+  </ul>
+</p>
+
+<p>
+  Defeat is always temporary for the Overlord's minions, as they are soulbound
+  to their post by the summoning ritual and resurrect after a few hours. The minion
+  is not removed from the room when defeated, but stays in play -- ready for the
+  next raid.
+</p>
+
+<p>
+  Once the minion is either defeated or has used its combat abilities, the
+  next minion in sequence is approached, or the raid moves to the Access phase.
+</p>
+
+<h3>Attack Boosts</h3>
+
+<p>
+  Many weapons have printed abilities which temporarily increase their attack
+  value, called an <b>attack boost</b>, in the form of a cost to add some amount
+  of attack. Unless otherwise indicated, this cost can be paid any number of
+  times to reach the target, and the increased attack value lasts only for the
+  duration of the current minion encounter.
+</p>
+
+<p>
+  For example, if the Champion has a weapon with a base attack of 3 and a boost
+  ability "2<i class="fas fa-fire"></i>: +1 Attack", the champion can pay
+  2<i class="fas fa-fire"></i> per attack point required. If they are attempting
+  to defeat a minion with 5 health, they can do so by paying 4<i class="fas
+  fa-fire"></i> to activate the attack boost twice. The weapon's attack value
+  then reverts to 3.
+</p>
+
+<h2>Access Phase</h2>
+
+<h3>Raid Success</h3>
+<p>
+  Once all of the minions defending the target room have been passed, the raid
+  is considered a success, and any <b><i class="fas fa-bolt"></i>Successful
+  Raid</b> triggers on cards in play fire. The Champion then <b>accesses</b> cards as
+  follows based on the target room:
+</p>
+
+<ul>
+  <li>
+    <b>Sanctum</b>: The Champion accesses one random card from the Overlord's
+    hand.
+  </li>
+  <li>
+    <b>Vault</b>: The Champion accesses the top card of the Overlord's deck. The
+    accessed card is not revealed to the Overlord.
+  </li>
+  <li>
+    <b>Crypts</b>: The Champion accesses all face-down cards in the Overlord's
+    discard pile.
+  </li>
+  <li>
+    <b>Outer Room</b>: The Champion accesses the project or server card
+    occupying the room.
+  </li>
+</ul>
+
+<h3>Accessing Cards</h3>
+<p>
+  When the Champion accesses cards, the actions they can take vary based on the
+  type of the accessed card:
+</p>
+<ul>
+  <li>
+    If the Champion acceses a scheme card they may score it, gaining
+    scheme points equal to its points value and then moving it to their score
+    area. This does <i>not</i> trigger the <b><i class="fas
+    fa-bolt"></i>Score</b> ability of the card.
+  </li>
+  <li>
+    If the Champion accesses a project card, it becomes revealed. The Champion
+    may destroy it by paying its unveil cost and then moving it to the Overlord's
+    discard pile.
+  </li>
+  <li>
+    Other card types have no effect when accessed other than becoming revealed
+    to the Champion. The revealed state of cards persists across game zones,
+    for example they continue to be revealed when a minion is played from hand
+    into a specific room.
+  </li>
+</ul>
+
+<p>
+  When accessing multiple cards, the Champion may take these actions in any
+  order. After concluding access actions, the raid ends and the Champion's main
+  phase resumes.
+</p>
 
 <br />
 <br />

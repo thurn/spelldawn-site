@@ -18,6 +18,15 @@ $sidebar-sticky: false;
   }
 }
 
+.page-link {
+  font-size: 1.25rem;
+}
+
+.page-link.secondary {
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
 .copyright {
   margin-top: 2rem;
   font-size: 0.6rem;
@@ -117,6 +126,10 @@ $sidebar-sticky: false;
 
 #table-of-contents li, #table-of-contents ul, #table-of-contents ul li{
     list-style: outside none none !important;
+}
+
+#table-of-contents ul {
+  padding-left: 0.5rem;
 }
 
 li.toc-li-H2 {

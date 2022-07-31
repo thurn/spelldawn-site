@@ -1,0 +1,12 @@
+- name: "How to Play"
+  url: "/pages/how_to_play.html"
+
+- name: "For Netrunner Players"
+  url: "/pages/spelldawn_for_netrunner_players.html"
+  secondary: true
+
+- name: "Contributing"
+  url: "/pages/contributing.html"
+
+- name: "Community"
+  url: "/pages/community.html"

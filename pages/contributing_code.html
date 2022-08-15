@@ -1,0 +1,178 @@
+---
+title: Contributing Code
+layout: page
+---
+
+{% include toc.html %}
+
+<p>
+  Spelldawn is implemented using a 'thin client' model, with a small Unity
+  application implemented in C# providing a user interface and a game server
+  written Rust providing the game logic itself. This page describes how to set
+  up a development environment to contribute to the project.
+</p>
+
+<p>
+  If you run into any issues with this documentation, please feel free to submit
+  an issue via
+  <a href="https://github.com/thurn/spelldawn-site/issues/new"
+    >https://github.com/thurn/spelldawn-site/issues/new</a
+  >
+  to request an update.
+</p>
+
+<h1>Server Development Environment</h1>
+<p>
+  Throughout this section, these icons give OS-specific information about the
+  setup process:
+</p>
+
+<div class="os-row">
+  <i class="fab fa-windows"></i> Set up information for Windows
+</div>
+<div class="os-row">
+  <i class="fab fa-apple"></i> Set up information for Mac OS
+</div>
+<div class="os-row">
+  <i class="fab fa-linux"></i> Set up information for Linux
+</div>
+
+<h2>1) Install Command Line Tools</h2>
+<p>
+  The build system for Spelldawn assumes basic UNIX command line tools will exist,
+  such as <code>sh</code>, <code>rm</code>, <code>mv</code>, <code>mkdir</code>,
+  <code>cp</code>, and <code>grep</code>.
+</p>
+
+<div class="os-row">
+  <i class="fab fa-windows"></i> A simple option to set up a command line
+  environment on Windows is the <a href="https://cmder.app/">Cmder</a> console
+  emulator, which bundles standard UNIX tools with a nice terminal. A more
+  comprehensive alternative is to install
+  <a href="https://docs.microsoft.com/en-us/windows/wsl/install"
+    >Windows Subsystem for Linux</a
+  >, which includes a complete Linux distribution. If you use this option,
+  follow the <i class="fab fa-linux"></i> options below instead.
+</div>
+<div class="os-row">
+  <i class="fab fa-linux"></i><i class="fab fa-apple"></i> These tools should
+  already be installed on your system.
+</div>
+
+<h2>2) Install Git</h2>
+<p>
+  Spelldawn uses the Git version control system to manage code, so you will need
+  a copy of it. The
+  <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"
+    >Installing Git</a
+  >
+  section of the Git website gives information about how to do this.
+</p>
+<div class="os-row">
+  <i class="fab fa-windows"></i> The
+  <a href="https://cmder.app/">Cmder</a> environment mentioned above includes
+  Git for Windows. Otherwise, you can download it from the link above.
+</div>
+<div class="os-row">
+  <i class="fab fa-apple"></i> The git command is bundled with Mac OS, although
+  you can consider installing a newer version via
+  <a href="https://brew.sh/">Homebrew</a>.
+</div>
+<div class="os-row">
+  <i class="fab fa-linux"></i> Linux package managers include Git, e.g.
+  <code>sudo apt install git</code>
+</div>
+
+<h2>3) Install Rust and Cargo</h2>
+<p>
+  Spelldawn is written in the Rust programming language and uses the standard
+  <code>cargo</code> package manager. The
+  <a href="https://www.rust-lang.org/tools/install"
+    >https://www.rust-lang.org/tools/install</a
+  >
+  website gives information about how to set it up using <code>rustup</code>.
+</p>
+
+<div class="os-row">
+  <i class="fab fa-windows"></i> For windows, you will also need a copy of the
+  MSVC compiler. The Rust installer should prompt you to install Visual Studio
+  Community Edition.
+</div>
+
+<h2>4) Install CMake</h2>
+<p>
+  We use the <a href="https://grpc.io/">gRPC RPC Framework</a> to communicate
+  between the server and the client. gRPC depends on the
+  <a href="https://cmake.org/">CMake</a> build tool being on your system
+  <code>$PATH</code>
+  for compilation.
+</p>
+
+<div class="os-row">
+  <i class="fab fa-windows"></i>
+  <a href="https://cmake.org/download/">https://cmake.org/download/</a> provides
+  a Windows MSI installer. You should be prompted to add CMake to your PATH
+  system variable, which is required for the code to compile.
+</div>
+<div class="os-row">
+  <i class="fab fa-apple"></i> You can install CMake via the
+  <a href="https://brew.sh/">Homebrew</a> package manager:
+  <code>brew install cmake</code>
+</div>
+<div class="os-row">
+  <i class="fab fa-linux"></i> Linux package managers should contain CMake, e.g.
+  via <code>sudo apt install cmake</code>.
+</div>
+
+<h2>5) Install Just</h2>
+<p>
+  <a href="https://github.com/casey/just">Just</a> is a command runner. It's a
+  useful way of bundling together scripts for a project. If you installed a
+  working UNIX shell enviornment in step #1, running
+  <code>cargo install just</code> should set it up for you.
+</p>
+
+<h2>6) Clone the project files</h2>
+<p>
+  Navigate to
+  <a href="https://github.com/thurn/spelldawn/fork"
+    >https://github.com/thurn/spelldawn/fork</a
+  >
+  to create a fork of the project for your changes. You will need to create a
+  GitHub account if you don't already have one. Then run
+</p>
+
+<p>
+  <code> git clone git@github.com:{your_username}/spelldawn.git </code>
+</p>
+
+<p>
+  To download a local copy of the project, replacing
+  <code>{your_username}</code> with your Github account name.
+</p>
+
+<p>
+  If you just want to check out the project without contributing back, you can
+  also run
+</p>
+
+<p>
+  <code> git clone https://github.com/thurn/spelldawn.git </code>
+</p>
+
+<h2>7) Build the Server</h2>
+<p>
+  If you followed all of the previous steps correctly, you should be able to
+  <code>cd spelldawn</code> to change to the spelldawn directory and then
+  compile and run the game server via:
+</p>
+
+<p>
+  <code>just run</code>
+</p>
+
+<p>If everything is working correctly, you should get the message</p>
+
+<p>
+  <code>Server listening on 0.0.0.0:50052</code>
+</p>

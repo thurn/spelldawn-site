@@ -8,5 +8,9 @@
 - name: "Contributing"
   url: "/pages/contributing.html"
 
+- name: "Code"
+  url: "/pages/contributing_code.html"
+  secondary: true
+
 - name: "Community"
   url: "/pages/community.html"

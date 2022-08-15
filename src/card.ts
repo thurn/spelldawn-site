@@ -172,7 +172,7 @@ export class SpelldawnCard extends LitElement {
           '{A}',
           '<i class="fas fa-hourglass"></i>'
         );
-      };
+      }
     }
   }
 

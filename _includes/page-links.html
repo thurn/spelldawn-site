@@ -1,5 +1,7 @@
 {% for nav in site.data.nav %}
-  <a class="page-link {% if page.url == nav.url %} active{% endif %} {% if nav.secondary%}secondary{% endif %}"
-      href="{{ nav.url | relative_url }}">{{ nav.name }}</a>
+<a
+  class="page-link {% if page.url == nav.url %} active{% endif %} {% if nav.secondary%}secondary{% endif %}"
+  href="{{ nav.url | relative_url }}"
+  >{{ nav.name }}</a
+>
 {% endfor %}
-

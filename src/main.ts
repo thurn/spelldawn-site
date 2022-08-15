@@ -1,11 +1,10 @@
-import { SpelldawnCard } from './card';
+import {SpelldawnCard} from './card';
 
 export {SpelldawnCard};
 
 const anchors = (window as any).anchors;
 anchors.add('h1, h2, h3');
 generateTableOfContents(anchors.elements);
-
 
 // Script from https://www.roberthorvick.com/blog/dynamically-creating-table-of-contents-from-anchorjs-elements
 function generateTableOfContents(els: Array<Element>) {
@@ -29,7 +28,12 @@ function generateTableOfContents(els: Array<Element>) {
   }
 }
 
-function addNavItem(ul: Element, href: string, text: string, listClass: string) {
+function addNavItem(
+  ul: Element,
+  href: string,
+  text: string,
+  listClass: string
+) {
   var listItem = document.createElement('LI'),
     anchorItem = document.createElement('A') as HTMLAnchorElement,
     textNode = document.createTextNode(text);

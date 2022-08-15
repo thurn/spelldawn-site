@@ -23,8 +23,13 @@ $sidebar-sticky: false;
 }
 
 .page-link.secondary {
-  margin-left: 1rem;
   font-size: 0.9rem;
+}
+
+@media(min-width: 49rem)  {
+.page-link.secondary {
+  margin-left: 1rem;
+}
 }
 
 .copyright {
@@ -92,6 +97,10 @@ $sidebar-sticky: false;
   left: 3rem;
 }
 
+.os-row i {
+  width: 1rem;
+}
+
 // CSS from https://www.roberthorvick.com/blog/dynamically-creating-table-of-contents-from-anchorjs-elements
 
 #table-of-contents {
@@ -140,3 +149,4 @@ li.toc-li-H3 {
     margin-left: 1rem;
     font-size: 85%;
 }
+

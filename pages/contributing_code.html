@@ -176,3 +176,105 @@ layout: page
 <p>
   <code>Server listening on 0.0.0.0:50052</code>
 </p>
+
+<h1>Optional Setup</h1>
+<p>
+  There are a few more optional setup steps for an improved overall development
+  experience.
+</p>
+<h2>Install Rust Nightly</h2>
+<p>
+  Nightly rust is not used for compiling the project itself, but it provides
+  useful tooling features such as expanded <code>rustfmt</code> capabilities.
+  Install it via <code>rustup</code>
+</p>
+
+<div class="os-row">
+  <i class="fab fa-windows"></i> <code>rustup toolchain add nightly-x86_64-pc-windows-msvc</code>
+</div>
+<div class="os-row">
+  <i class="fab fa-apple"></i> <code>rustup toolchain add
+  nightly-aarch64-apple-darwin</code> (or <code>nightly-x86_64-apple-darwin</code>)
+</div>
+<div class="os-row">
+  <i class="fab fa-linux"></i> <code>rustup target add nightly-x86_64-unknown-linux-gnu</code>
+</div>
+
+<h2>Install Criterion</h2>
+<p>
+  Criterion is a fantastic benchmarking tool which powers our benchmark tests.
+  In order to run the tests, you should run <code>cargo install cargo-criterion</code>
+</p>
+
+<h2>Install a custom linker</h2>
+<p>
+  Using a custom linker can significantly improve compilation speed. The <code>lld</code>
+  linker on Mac OS and Windows and the <code>mold</code> linker on Linux are good options
+  that can be installed from standard package managers.
+</p>
+
+<p>
+  Create a <code>~/.cargo/config.toml</code> file on your system
+  and then add a custom linker configuration for your build target:
+</p>
+
+<p>
+  <pre>
+    [target.aarch64-apple-darwin]
+    rustflags = ["-C", "link-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld"]
+
+    [target.x86_64-unknown-linux-gnu]
+    linker = "clang"
+    rustflags = ["-C", "link-arg=-fuse-ld=/path/to/mold"]
+  </pre>
+</p>
+
+<h1>Other Just Commands</h1>
+<p>
+  The Just command runner offers a few different commands which can be used
+  during development:
+</p>
+<ul>
+  <li><code>just build</code> Builds the server binary</li>
+  <li><code>just run</code> Runs the server</li>
+  <li>
+    <code>just code-review</code> Runs lints, tests, and other checks which
+    should be completed before sending a pull request.
+  </li>
+  <li>
+    <code>just test</code> Run tests
+  </li>
+  <li>
+    <code>just benchmark</code> Run benchmark tests. With an argument runs only
+    a specific named benchmark.
+  </li>
+  <li>
+    <code>just matchup</code> Command line tool to run a game between two AI
+    agents.
+  </li>
+  <li>
+    <code>just nim</code> Command line tool to run the Game of Nim between
+    agents or between an agent and a human player.
+  </li>
+  <li>
+    <code>just update-cards</code> Automatically adds new card definitiions to
+    the master card definition list.
+  </li>
+  <li>
+    <code>just protos</code> Regenerates protocol buffer definitions
+  </li>
+  <li>
+    <code>just screenshot-tests</code> Runs screenshot tests, comparing results
+    to known-good canonical images.
+  </li>
+  <li>
+    <code>just record</code> Records new canonical images for screenshot tests.
+  </li>
+  <li>
+    <code>just fix</code> Attempts to automatically fix common lint and
+    errors.
+  </li>
+  <li>
+    <code>just machete</code> Tool to automatically remove unused crate dependencies.
+  </li>
+</ul>

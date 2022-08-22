@@ -1,16 +1,20 @@
-- name: "How to Play"
-  url: "/pages/how_to_play.html"
+- name: 'How to Play'
+  url: '/pages/how_to_play.html'
 
-- name: "For Netrunner Players"
-  url: "/pages/spelldawn_for_netrunner_players.html"
+- name: 'For Netrunner Players'
+  url: '/pages/spelldawn_for_netrunner_players.html'
   secondary: true
 
-- name: "Contributing"
-  url: "/pages/contributing.html"
+- name: 'Contributing'
+  url: '/pages/contributing.html'
 
-- name: "Code"
-  url: "/pages/contributing_code.html"
-  secondary: true
+- name: 'Code'
+  expand: true
+  children:
+    - name: 'Getting Started'
+      url: '/pages/code_getting_started.html'
+    - name: 'AI Agents'
+      url: '/pages/ai_agents.html'
 
-- name: "Community"
-  url: "/pages/community.html"
+- name: 'Community'
+  url: '/pages/community.html'

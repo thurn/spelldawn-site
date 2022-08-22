@@ -20,16 +20,26 @@ $sidebar-sticky: false;
 
 .page-link {
   font-size: 1.25rem;
+  display: block;
+  line-height: 1.75;
+}
+
+.page-expand {
+  color: white;
 }
 
 .page-link.secondary {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 @media(min-width: 49rem)  {
-.page-link.secondary {
-  margin-left: 1rem;
-}
+  .page-link.secondary {
+    margin-left: 1rem;
+  }
+
+  #sidebar details {
+    margin-left: 1rem;
+  }
 }
 
 .copyright {

@@ -68,6 +68,14 @@ layout: page
   >
   section of the Git website gives information about how to do this.
 </p>
+
+<p>
+  Note: You can use Github Desktop if you'd like, but you will get an
+  authentication error after cloning the repository and need to manually add it
+  again from your filesystem. This is because Github Desktop always fetches
+  submodules, there is no way to disable this behavior.
+</p>
+
 <div class="os-row">
   <i class="fab fa-windows"></i> The
   <a href="https://cmder.app/">Cmder</a> environment mentioned above includes
@@ -177,6 +185,114 @@ layout: page
   <code>Server listening on 0.0.0.0:50052</code>
 </p>
 
+<img src="/assets/images/serverRunning.png" />
+
+<h1>Client Development Environment</h1>
+
+<h2>1) Install Unity & Unity Hub</h2>
+<p>
+  Once you've completed setting up the server development environment, you can
+  set up the client and connect it to your running server. To start you will
+  need to install Unity. The best way to do this is to install
+  <a href="https://unity3d.com/get-unity/download">Unity Hub</a>, which manages
+  Unity installations.
+</p>
+
+<p>
+  Once Unity Hub is installed, you must install the version of the Unity Editor
+  currently listed in the project's <a
+  href="https://github.com/thurn/spelldawn/blob/master/ProjectSettings/ProjectVersion.txt">ProjectVersion.txt</a>
+  file. You may need to visit the <a
+  href="https://unity3d.com/get-unity/download/archive">Unity Download
+  Archive</a> to find a copy of the correct version.
+</p>
+
+<p>
+  Once you have installed the correct verison of Unity, use the "Add Project"
+  button in Unity Hub to select the spelldawn directory, and then click on the
+  project name to open it. The initial project import process will take some
+  time to complete.
+</p>
+
+<h2>2) Open the Game Scene</h2>
+<p>
+  Once the project is open, expand the "Scenes" directory and click on the scene
+  called "Game". This is the primary Unity scene used for gameplay.
+</p>
+
+<h2>3) Camera Alignment</h2>
+<p>
+  Select the "Main Camera" in the scene hiearchy, and then select "Align View to
+  Selected" in the Unity GameObject menu. This step enables you to see what is
+  going on in the scene view while the game is running.
+</p>
+
+<img src="/assets/images/alignViewToSelected.png" width="200" />
+
+<h2>4) Configure Simulator</h2>
+<p>
+  Navigate to the "Game" view and click the dropdown in the tab name. Switch it
+  to "Simulator". Select an iPhone SE (2nd Edition) simulator and rotate it to
+  landscape. This lets you view the game as it will appear on-device.
+</p>
+
+<img src="/assets/images/simulator.png" />
+
+<p>
+  <b>Note:</b> You will only see the development 'graybox' assets in the
+  simulator. This is expected. The production art assets are separately licensed
+  under the terms of the Unity Asset Store License and are not included in the
+  github repository.
+</p>
+
+<h2>5) Run the Game</h2>
+<p>
+  If you click the Play button, the game should begin. In the Unity console, you
+  should see the message
+</p>
+
+<p>
+  <code>Connecting to http://localhost:50052</code>
+</p>
+
+<p>
+  In the terminal where you invoked <code>just run</code>, you should see the message
+</p>
+
+<p>
+  <code>WARN server::requests: received_connection</code>
+</p>
+
+<h2>6) Start a new game</h2>
+
+<p>
+  Click the debug button on the top-right of the screen. After a small delay,
+  you should see the debug controls menu appear
+</p>
+
+<img src="/assets/images/debugControls.png" />
+
+<p>
+  You can click "New Game" here to start a new game. There are also several
+  other useful commands, for example you can use "Flip View" to change the
+  player whose perspective you are viewing. You can also assign an AI Agent to
+  be your opponent in the new game, change action and mana values, and use the
+  'save state' and 'load state' buttons to snapshot the current game state to
+  return to it later.
+</p>
+
+<p>
+  After clicking "New Game", you should see an opening hand. The game has started!
+</p>
+
+<img src="/assets/images/runningGame.png" />
+
+<p>
+  No AI Agent is assigned for your opponent by default, so nothing will happen
+  initially. You can assign one yourself or switch back and forth between
+  players using the "Flip View" command to manually play out a game.
+</p>
+
 <h1>Optional Setup</h1>
 <p>
   There are a few more optional setup steps for an improved overall development
@@ -229,7 +345,7 @@ layout: page
   </pre>
 </p>
 
-<h1>Other Just Commands</h1>
+<h1>Appendix: Other Just Commands</h1>
 <p>
   The Just command runner offers a few different commands which can be used
   during development:

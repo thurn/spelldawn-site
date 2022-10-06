@@ -3,7 +3,11 @@ Spelldawn Website
 ## Development
 
 - Run 'npm install' to get started
-- Run 'bundle exec jekyll serve' to start a server which watches for and re-renders HTML content
+- Run 'bundle exec jekyll serve' to start a server which watches for and
+  re-renders HTML content
+- Navigate to http://127.0.0.1:4000/ in your browser to see the result
+
+### Implementation
 - GitHub pages use Jekyll for site templating: https://jekyllrb.com/
 - Site template is https://github.com/fongandrew/hydeout
 - Dynamic content is provided by the Lit web framework: https://lit.dev/

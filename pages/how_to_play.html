@@ -36,9 +36,9 @@ layout: page
   <b>action points (<i class="fas fa-hourglass"></i>)</b> to spend on a variety
   of possible game effects such as gaining
   <b>mana (<i class="fas fa-fire"></i>)</b>, drawing cards, and playing cards.
-  The Overlord can play and level up their scheme cards in the rooms of the
-  dungeon in order to score points, while deploying minions to defend them. The
-  Champion can initiate a <b>raid</b> on a room of the dungeon to attempt to
+  The Overlord can play and level up their <b>scheme</b> cards in the rooms of
+  the dungeon in order to score points, while deploying minions to defend them.
+  The Champion can initiate a <b>raid</b> on a room of the dungeon to attempt to
   bypass the dungeon's defenses and score points by foiling the Overlord's
   plans.
 </p>
@@ -210,8 +210,7 @@ layout: page
   <div class="card-image-text">
     <p>
       Scheme cards represent the Overlord's evil machinations to bring about
-      their master plan. They are the only cards in Spelldawn that are worth
-      scheme points.
+      their master plan. They are the cards in Spelldawn that are worth points.
     </p>
 
     <p>
@@ -219,8 +218,9 @@ layout: page
       a level requirement that must be met before the Overlord can score that
       card (see the <a href="#level-up-a-room">Level Up a Room</a> action).
       There can only ever be one scheme <b>or</b> one project in a room at a
-      given time. Schemes have a <b><i class="fas fa-bolt"></i>Score</b> ability
-      which resolves when the Overlord meets the level requirement.
+      given time. Schemes often have a
+      <b><i class="fas fa-bolt"></i>Score</b> ability which resolves when the
+      Overlord meets the level requirement.
     </p>
 
     <h4>Icons:</h4>
@@ -269,16 +269,17 @@ layout: page
       Minions are cards that the Overlord plays in order to defend the rooms of
       the dungeon against the Champion. Minions are played face down in rooms
       <i>without</i> paying their mana cost. They are automatically
-      <b>summoned</b> and turned face up during a raid by paying their mana
-      cost, if the Overlord has sufficient mana available.
+      <b>summoned</b> and turned face up during a raid by paying their mana cost
+      if the Overlord has sufficient mana available.
     </p>
 
     <p>
-      Each minion has a <b><i class="fas fa-bolt"></i>Combat</b> ability which
-      fires if the Champion is unable to defeat this minion in combat during a
-      raid, as well as a <b>health</b> and optionally a <b>shield</b> value. See
-      the <a href="#encounter-phase">Encounter Phase</a> section below for more
-      information.
+      Each minion typically has a
+      <b><i class="fas fa-bolt"></i>Combat</b> ability which fires if the
+      Champion is unable to defeat this minion during a raid, as well as a
+      <b>health</b> and sometimes a <b>shield</b> value. See the
+      <a href="#encounter-phase">Encounter Phase</a> section below for more
+      information about combat.
     </p>
 
     <h4>Icons:</h4>
@@ -301,7 +302,7 @@ layout: page
     <p>
       Projects provide the Overlord with resources in order to further their
       objectives. They're played in outer rooms in the same manner as schemes
-      <i>without</i> paying their mana cost. Projects can specify an
+      <i>without</i> paying their mana cost. Projects usually specify an
       <b>Unveil</b> condition which causes them to be turned face up
       <i>if</i> the Overlord has sufficient mana available to pay their cost.
     </p>
@@ -453,8 +454,8 @@ layout: page
 
 <p>
   Players in Spelldawn alternate taking turns, starting with the Overlord
-  player. Players are never required to take an action during their opponenet's
-  turn. Each player begins their turn with <i class="fas fa-hourglass"></i>
+  player. Players can never take an action during their opponenet's turn. Each
+  player begins their turn with <i class="fas fa-hourglass"></i>
   <i class="fas fa-hourglass"></i> <i class="fas fa-hourglass"></i> (3 action
   points). A turn consists of these phases:
 </p>
@@ -564,7 +565,7 @@ layout: page
 
   <li>
     <b>Minion</b> cards do <i>not</i> require their mana cost to be paid
-    immediately. They are put into play face down as the outermost defender in a
+    immediately. They are put into play face down as the outermost defender of a
     room. A maximum of 4 minions can be in a room at any time. If an additional
     minion is played, the innermost minion is immediately moved to the Crypts.
   </li>
@@ -607,16 +608,16 @@ layout: page
   Finally, the active player automatically discards down to their maximum hand
   size. Players begin the game with a maximum hand size of 7 cards, but card
   effects can increase or decrease this limit. If more cards are present in hand
-  than their maximum hand size, players must discard their leftmost card until
-  they are no longer above the maximum.
+  than their maximum hand size, players must discard their leftmost (oldest)
+  card until they are no longer above the maximum.
 </p>
 
-<h1>Lineage Types</h1>
+<h1>Lineage</h1>
 <p>
   The world of Spelldawn is undergoing a confluence between three planes of
   existence. The original terrestrial plane is being overlaid by two other
   planes, the infernal plane and the abyssal plane, and creatures and items from
-  those other worlds are now passing through into the mortal plane.
+  those other worlds are now passing through into the mortal world.
 </p>
 
 <p>
@@ -627,7 +628,7 @@ layout: page
 <ul>
   <li>
     <span class="mortal lineage">Mortal</span>: Weapons and creatures from the
-    original prime material plane.
+    terrestrial plane.
   </li>
   <li>
     <span class="infernal lineage">Infernal</span>: Weapons and creatures from
@@ -701,9 +702,9 @@ layout: page
 </p>
 
 <p>
-  If the approached minion is face-up, the Champion <b>encounters</b> that
-  minion. Otherwise, the Champion approaches the next minion in sequence, or
-  proceeds to the Access phase if no minions remain.
+  The Champion then <b>encounters</b> the minion if it is face up. Otherwise, the
+  Champion approaches the next minion in sequence, or proceeds to the Access
+  phase if no minions remain.
 </p>
 
 <h3>Encountering a Minion</h3>
@@ -717,12 +718,12 @@ layout: page
 <p>In order to defeat a minion, the Champion must do two things:</p>
 <ul>
   <li>
-    Pay an amount of mana equal to the shield value of the minion, if any. Some
+    Pay an amount of mana equal to the <b>shield</b> value of the minion, if any. Some
     card effects such as the <b>Breach</b> keyword reduce the amount that must
     be paid for shield values.
   </li>
   <li>
-    Deal damage to the minion equal to its health value. Weapons with the same
+    Deal damage to the minion equal to its <b>health</b> value. Weapons with the same
     lineage type as the minion deal damage equal to their base attack value plus
     any bonuses from abilities.
   </li>
@@ -785,7 +786,7 @@ layout: page
     discard pile.
   </li>
   <li>
-    <b>Outer Room</b>: The Champion accesses the project or server card
+    <b>Outer Room</b>: The Champion accesses the project or scheme card
     occupying the room.
   </li>
 </ul>
@@ -810,8 +811,8 @@ layout: page
   <li>
     Other card types have no effect when accessed other than becoming revealed
     to the Champion. The revealed state of cards persists across game zones, for
-    example they continue to be revealed when a minion is played from hand into
-    a specific room.
+    example when a minion is played from hand into a specific room it continues
+    to be revealed.
   </li>
 </ul>
 
@@ -827,8 +828,8 @@ layout: page
 <p>
   Some cards and abilities deal <b>damage</b> to the Champion. When the Champion
   takes damage, they must discard one card from their hand at random per point
-  of damage dealt. If the Champion takes more damage than the number of cards in
-  their hand, they immediately lose the game.
+  of damage dealt. If the Champion takes damage and is unable to discard a card,
+  they immediately lose the game.
 </p>
 
 <h2>Curses</h2>

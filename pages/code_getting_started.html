@@ -13,12 +13,12 @@ layout: page
 </p>
 
 <p>
-  If you run into any issues with this documentation, please feel free to submit
+  If you run into any problems with this documentation, please feel free to submit
   an issue via
   <a href="https://github.com/thurn/spelldawn-site/issues/new"
     >https://github.com/thurn/spelldawn-site/issues/new</a
   >
-  to request an update or send a pull request to fix the issue yourself!
+  to request an update or send a pull request to fix it yourself!
 </p>
 
 <h1>Server Development Environment</h1>
@@ -78,7 +78,7 @@ layout: page
 
 <div class="os-row">
   <i class="fab fa-windows"></i> The
-  <a href="https://cmder.app/">Cmder</a> environment mentioned above includes
+  <a href="https://cmder.app/">Cmder</a> environment includes
   Git for Windows. Otherwise, you can download it from the link above.
 </div>
 <div class="os-row">
@@ -94,11 +94,11 @@ layout: page
 <h2>3) Install Rust and Cargo</h2>
 <p>
   Spelldawn is written in the Rust programming language and uses the standard
-  <code>cargo</code> package manager. The
+  <code>cargo</code> package manager.
   <a href="https://www.rust-lang.org/tools/install"
     >https://www.rust-lang.org/tools/install</a
   >
-  website gives information about how to set it up using <code>rustup</code>.
+  gives information about how to set it up using <code>rustup</code>.
 </p>
 
 <div class="os-row">
@@ -237,16 +237,8 @@ layout: page
 
 <h2>5) Run the Game</h2>
 <p>
-  If you click the Play button, the game should begin. In the Unity console, you
-  should see the message
-</p>
-
-<p>
-  <code>Connecting to http://localhost:50052</code>
-</p>
-
-<p>
-  In the terminal where you invoked <code>just run</code>, you should see the message
+  If you click the Play button, the game should begin. In the terminal where you
+  invoked <code>just run</code>, you should see the message
 </p>
 
 <p>
@@ -256,7 +248,7 @@ layout: page
 <h2>6) Start a new game</h2>
 
 <p>
-  Click the debug button on the top-right of the screen. After a small delay,
+  Click the debug button on the top-left of the screen. After a small delay,
   you should see the debug controls menu appear
 </p>
 
@@ -343,6 +335,7 @@ layout: page
 <ul>
   <li><code>just build</code> Builds the server binary</li>
   <li><code>just run</code> Runs the server</li>
+  <li><code>just watch</code> Runs the server and re-builds on file changes</li>
   <li>
     <code>just code-review</code> Runs lints, tests, and other checks which
     should be completed before sending a pull request.

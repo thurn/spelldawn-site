@@ -95,12 +95,12 @@ layout: page
   StatePredictor implementations should typically censor any non-public
   information from the input game state. They can also optionally implement
   prediction heuristics to derive possible game states, e.g. inferring the
-  identity of face-down cards based on a known or projected opponent decklist.
+  identity of face-down cards based on opponent behavior.
 </p>
 
 <p>
   The simplest StatePredictor is the 'omniscient' predictor which simply returns
-  the canonical gamestate unchanged. This means that the AI agent has perfect
+  the canonical GameState unchanged. This means that the AI agent has perfect
   information about all hidden cards, which is very effective but obviously
   constitutes cheating from the perspective of a player.
 </p>
@@ -115,16 +115,15 @@ layout: page
       >StateCombiner</a
     ></code
   >
-  is used. This type represents a means to evaluate state predictions and select
-  a state to use as the basis of decision-making.
+  is used. This type picks one of the valid game states to operate on.
 </p>
 
 <p>
-  The StateCombiner use an evaluation function (a
-  <a href="#stateevaluator">StateEvaluator</a>) to analyze game states. The
-  simplest StateCombiner is the 'worst_case' combiner, which always assumes that
-  the <i>worst</i> GameState of the possible options should be used to
-  pessimistically make decisions.
+  The StateCombiner uses an evaluation function (a
+  <a href="#stateevaluator">StateEvaluator</a>) to analyze game states and
+  select the best candidate. The simplest StateCombiner is the 'worst_case'
+  combiner, which always assumes that the <i>worst</i> GameState of the possible
+  options should be used to pessimistically make decisions.
 </p>
 
 <h2>SelectionAlgorithm</h2>
@@ -143,17 +142,17 @@ layout: page
 </p>
 
 <p>
-  One traditional example of a selection algorithm is tree search, where game
+  One traditional example of a selection algorithm is depth-limited tree search, where game
   actions are tried sequentially, applying the algorithm recursively to pick
-  opponent moves, and then the best result is returned. The
+  opponent moves and returning the best result. The
   <code
     ><a
       href="https://github.com/thurn/spelldawn/blob/master/crates/ai_tree_search/src/alpha_beta.rs"
       >AlphaBetaAlgorithm</a
     ></code
   >
-  implementation of this concept implements a more optimized version of standard
-  tree search, as described by
+  struct implements a more optimized version of standard
+  tree search using alpha-beta pruning, as described by
   <a href="https://en.wikipedia.org/wiki/Alpha-beta_pruning"
     >https://en.wikipedia.org/wiki/Alpha-beta_pruning</a
   >
@@ -197,7 +196,7 @@ layout: page
   or have lost) and a positive integer if the state is better. A very simple
   evalautor is the 'Win/Loss' function, which simply returns 1 if the player has
   won the game, 0 if the game is in progress, and -1 if the player has lost.
-  This functions well for some algorithms, but more sophisticated algorithms can
+  This functions well for some algorithms, but more sophisticated evaluators can
   improve AI performance significantly.
 </p>
 
@@ -212,7 +211,7 @@ layout: page
 <p>
   Testing and analyzing the performance of AI implementations can be very
   difficult because their operations can be inherently non-deterministic and
-  many games need to be played to idenfity trends. Some tools are available for
+  many games need to be played to identify trends. Some tools are available for
   working with AI Agents:
 </p>
 

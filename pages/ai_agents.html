@@ -202,7 +202,74 @@ layout: page
 </p>
 
 <p>
-    Evaluators tend to be the least generic pieces of the AI system, since their
-    exact implementation is very game-dependent, and this is where all sorts of
-    'expert hueristics' for game evaluation are encoded.
+  Evaluators tend to be the least generic pieces of the AI system, since their
+  exact implementation is very game-dependent, and this is where all sorts of
+  'expert hueristics' for game evaluation are encoded.
+</p>
+
+<h1>AI Testing</h1>
+
+<p>
+  Testing and analyzing the performance of AI implementations can be very
+  difficult because their operations can be inherently non-deterministic and
+  many games need to be played to idenfity trends. Some tools are available for
+  working with AI Agents:
+</p>
+
+<h2>Running Matchups</h2>
+
+<p>
+  Any two named AI agents can be matched against each other via the
+  <code>just matchup</code> script. For example, to compare the performance of
+  two agents, a command like:
+</p>
+
+<pre>
+    just matchup \
+        test-alpha-beta-scores \
+        test-alpha-beta-heuristics \
+        --matches 10 \
+        --panic-on-search-timeout \
+        --move-time 30
+</pre>
+
+<p>
+  will pit the named agents against each other for 10 matches. Refer to the
+  <code>just matchup --help</code> command for full documentation.
+</p>
+
+<h2>Running Benchmarks</h2>
+
+<p>
+  Benchmarks exist for most of the major AI implementations, and new agents
+  should generally include benchmarks as well. These tests use the Criterion
+  framework to perform detailed performance analysis. Running a command like
+  <code>just benchmark -- alpha_beta_search</code> will run an AI benchmark for
+  the Alpha Beta Search agent.
+</p>
+
+<h2>The Game of Nim</h2>
+
+<p>
+  In order to facilitate tests, the AI subsystem includes an implementation of
+  the Game of Nim (<a href="https://en.wikipedia.org/wiki/Nim"
+    >https://en.wikipedia.org/wiki/Nim</a
+  >). This is useful because it applies the standard AI agent implementations to
+  a 'known' game where it is much easier to objectively evaluate performance.
+</p>
+
+<p>
+  Nim is a good game to analyze because it has a very simple algorithm for
+  perfect play, but this algorithm is difficult for agents to discover. Using
+  large starting stack sizes the search tree for Nim can be enormous, providing
+  a helpful way to compare AI search performance.
+</p>
+
+<p>
+  You can play Nim against any implemented agent, or compare the performance of
+  two agents using the <code>just nim</code> command, for example via
+  <code>just nim uct1 alpha-beta --stack-size 10</code>. The implementation runs
+  each agent in turn and prints out the optimal move that the agent
+  <i>should</i> take in each game state. Refer to
+  <code>just nim --help</code> for the full command information.
 </p>

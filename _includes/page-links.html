@@ -1,40 +1,8 @@
 {% for nav in site.data.nav %}
-
-  {% if nav.expand %}
-
-  {% assign open = false %}
-  {% for child in nav.children %}
-    {% if page.url == child.url %}
-      {% assign open = true %}
-    {% endif %}
-  {% endfor %}
-
-  {% if open %}
-  <details open>
-  {% else %}
-  <details>
-  {% endif %}
-    <summary class="page-expand">{{nav.name}}</summary>
-
-  {% for child in nav.children %}
-    <a
-      class="page-link secondary {% if page.url == child.url %}active{% endif %}"
-      href="{{ child.url | relative_url }}"
-    >
-      {{ child.name }}
-    </a>
-  {% endfor %}
-  </details>
-
-  {% else %}
-
-  <a
-    class="page-link {% if page.url == nav.url %}active{% endif %} {% if nav.secondary%}secondary{% endif %}"
-    href="{{ nav.url | relative_url }}"
-  >
-    {{ nav.name }}
-  </a>
-
-  {% endif %}
-
+<a
+  class="page-link {% if page.url == nav.url %}active{% endif %} {% if nav.secondary%}secondary{% endif %}"
+  href="{{ nav.url | relative_url }}"
+>
+  {{ nav.name }}
+</a>
 {% endfor %}

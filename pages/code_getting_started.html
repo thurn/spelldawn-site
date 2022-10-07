@@ -7,14 +7,14 @@ layout: page
 
 <p>
   Spelldawn is implemented using a 'thin client' model, with a small Unity
-  application implemented in C# providing a user interface and a game server
-  written Rust providing the game logic itself. This page describes how to set
-  up a development environment to contribute to the project.
+  application implemented in C# providing a front-end and a game server written
+  Rust providing the game logic itself. This page describes how to set up a
+  development environment to contribute to the project.
 </p>
 
 <p>
-  If you run into any problems with this documentation, please feel free to submit
-  an issue via
+  If you run into any problems with this documentation, please feel free to
+  submit an issue via
   <a href="https://github.com/thurn/spelldawn-site/issues/new"
     >https://github.com/thurn/spelldawn-site/issues/new</a
   >
@@ -39,9 +39,9 @@ layout: page
 
 <h2>1) Install Command Line Tools</h2>
 <p>
-  The build system for Spelldawn assumes basic UNIX command line tools will exist,
-  such as <code>sh</code>, <code>rm</code>, <code>mv</code>, <code>mkdir</code>,
-  <code>cp</code>, and <code>grep</code>.
+  The build system for Spelldawn assumes basic UNIX command line tools will
+  exist, such as <code>sh</code>, <code>rm</code>, <code>mv</code>,
+  <code>mkdir</code>, <code>cp</code>, and <code>grep</code>.
 </p>
 
 <div class="os-row">
@@ -78,8 +78,8 @@ layout: page
 
 <div class="os-row">
   <i class="fab fa-windows"></i> The
-  <a href="https://cmder.app/">Cmder</a> environment includes
-  Git for Windows. Otherwise, you can download it from the link above.
+  <a href="https://cmder.app/">Cmder</a> environment includes Git for Windows.
+  Otherwise, you can download it from the link above.
 </div>
 <div class="os-row">
   <i class="fab fa-apple"></i> The git command is bundled with Mac OS, although
@@ -190,11 +190,16 @@ layout: page
 
 <p>
   Once Unity Hub is installed, you must install the version of the Unity Editor
-  currently listed in the project's <a
-  href="https://github.com/thurn/spelldawn/blob/master/ProjectSettings/ProjectVersion.txt">ProjectVersion.txt</a>
-  file. You may need to visit the <a
-  href="https://unity3d.com/get-unity/download/archive">Unity Download
-  Archive</a> to find a copy of the correct version.
+  currently listed in the project's
+  <a
+    href="https://github.com/thurn/spelldawn/blob/master/ProjectSettings/ProjectVersion.txt"
+    >ProjectVersion.txt</a
+  >
+  file. You may need to visit the
+  <a href="https://unity3d.com/get-unity/download/archive"
+    >Unity Download Archive</a
+  >
+  to find a copy of the correct version.
 </p>
 
 <p>
@@ -248,8 +253,8 @@ layout: page
 <h2>6) Start a new game</h2>
 
 <p>
-  Click the debug button on the top-left of the screen. After a small delay,
-  you should see the debug controls menu appear
+  Click the debug button on the top-left of the screen. After a small delay, you
+  should see the debug controls menu appear
 </p>
 
 <img src="/assets/images/debugControls.png" />
@@ -264,7 +269,8 @@ layout: page
 </p>
 
 <p>
-  After clicking "New Game", you should see an opening hand. The game has started!
+  After clicking "New Game", you should see an opening hand. The game has
+  started!
 </p>
 
 <img src="/assets/images/runningGame.png" />
@@ -288,44 +294,47 @@ layout: page
 </p>
 
 <div class="os-row">
-  <i class="fab fa-windows"></i> <code>rustup toolchain add nightly-x86_64-pc-windows-msvc</code>
+  <i class="fab fa-windows"></i>
+  <code>rustup toolchain add nightly-x86_64-pc-windows-msvc</code>
 </div>
 <div class="os-row">
-  <i class="fab fa-apple"></i> <code>rustup toolchain add
-  nightly-aarch64-apple-darwin</code> (or <code>nightly-x86_64-apple-darwin</code>)
+  <i class="fab fa-apple"></i>
+  <code>rustup toolchain add nightly-aarch64-apple-darwin</code> (or
+  <code>nightly-x86_64-apple-darwin</code>)
 </div>
 <div class="os-row">
-  <i class="fab fa-linux"></i> <code>rustup target add nightly-x86_64-unknown-linux-gnu</code>
+  <i class="fab fa-linux"></i>
+  <code>rustup target add nightly-x86_64-unknown-linux-gnu</code>
 </div>
 
 <h2>Install Criterion</h2>
 <p>
   Criterion is a fantastic benchmarking tool which powers our benchmark tests.
-  In order to run the tests, you should run <code>cargo install cargo-criterion</code>
+  In order to run the tests, you should run
+  <code>cargo install cargo-criterion</code>
 </p>
 
 <h2>Install a custom linker</h2>
 <p>
-  Using a custom linker can significantly improve compilation speed. The <code>lld</code>
-  linker on Mac OS and Windows and the <code>mold</code> linker on Linux are good options
-  that can be installed from standard package managers.
+  Using a custom linker can significantly improve compilation speed. The
+  <code>lld</code> linker on Mac OS and Windows and the <code>mold</code> linker
+  on Linux are good options that can be installed from standard package
+  managers.
 </p>
 
 <p>
-  Create a <code>~/.cargo/config.toml</code> file on your system
-  and then add a custom linker configuration for your build target:
+  Create a <code>~/.cargo/config.toml</code> file on your system and then add a
+  custom linker configuration for your build target:
 </p>
 
-<p>
-  <pre>
-    [target.aarch64-apple-darwin]
-    rustflags = ["-C", "link-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld"]
+<pre>
+  [target.aarch64-apple-darwin]
+  rustflags = ["-C", "link-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld"]
 
-    [target.x86_64-unknown-linux-gnu]
-    linker = "clang"
-    rustflags = ["-C", "link-arg=-fuse-ld=/path/to/mold"]
-  </pre>
-</p>
+  [target.x86_64-unknown-linux-gnu]
+  linker = "clang"
+  rustflags = ["-C", "link-arg=-fuse-ld=/path/to/mold"]
+</pre>
 
 <h1>Appendix: Other Just Commands</h1>
 <p>
@@ -340,9 +349,7 @@ layout: page
     <code>just code-review</code> Runs lints, tests, and other checks which
     should be completed before sending a pull request.
   </li>
-  <li>
-    <code>just test</code> Run tests
-  </li>
+  <li><code>just test</code> Run tests</li>
   <li>
     <code>just benchmark</code> Run benchmark tests. With an argument runs only
     a specific named benchmark.
@@ -359,9 +366,7 @@ layout: page
     <code>just update-cards</code> Automatically adds new card definitiions to
     the master card definition list.
   </li>
-  <li>
-    <code>just protos</code> Regenerates protocol buffer definitions
-  </li>
+  <li><code>just protos</code> Regenerates protocol buffer definitions</li>
   <li>
     <code>just screenshot-tests</code> Runs screenshot tests, comparing results
     to known-good canonical images.
@@ -370,10 +375,10 @@ layout: page
     <code>just record</code> Records new canonical images for screenshot tests.
   </li>
   <li>
-    <code>just fix</code> Attempts to automatically fix common lint and
-    errors.
+    <code>just fix</code> Attempts to automatically fix common lint and errors.
   </li>
   <li>
-    <code>just machete</code> Tool to automatically remove unused crate dependencies.
+    <code>just machete</code> Tool to automatically remove unused crate
+    dependencies.
   </li>
 </ul>

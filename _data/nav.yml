@@ -5,16 +5,16 @@
   url: '/pages/spelldawn_for_netrunner_players.html'
   secondary: true
 
-- name: 'Contributing'
-  url: '/pages/contributing.html'
+- name: 'Contributing Code'
+  url: '/pages/contributing_code.html'
 
-- name: 'Code'
-  expand: true
-  children:
-    - name: 'Getting Started'
-      url: '/pages/code_getting_started.html'
-    - name: 'AI Agents'
-      url: '/pages/ai_agents.html'
+- name: 'Getting Started'
+  url: '/pages/code_getting_started.html'
+  secondary: true
+
+- name: 'AI Agents'
+  url: '/pages/ai_agents.html'
+  secondary: true
 
 - name: 'Community'
   url: '/pages/community.html'

@@ -3,4 +3,206 @@ title: AI Agents
 layout: page
 ---
 
-<h1>AI Agents</h1>
+{% include toc.html %}
+
+<h1>Overview</h1>
+<p>
+  The AI system implements artificial intelligence 'agents' to compete against a
+  human player in a game of Spelldawn. This page provides an technical overview
+  of the architecture of the AI system on the server.
+</p>
+
+<h2>The Agent Trait</h2>
+
+<p>
+  An AI agent implementation must implement the
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_core/src/agent.rs"
+      >Agent</a
+    ></code
+  >
+  trait, which provides the <code>pick_action()</code> function to allow the
+  agent to select a game action to perform given a game state. The agent is
+  provided an <code>AgentConfig</code> which contains information such as a
+  deadline by which the agent is expected to return an action.
+</p>
+
+<h2>The AgentData Struct</h2>
+
+<p>
+  The Agent trait should almost always be implemented by using the
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_core/src/agent.rs"
+      >AgentData</a
+    ></code
+  >
+  struct. This data structure pairs together a few reusable pieces that make up
+  the 'standard model' of AI behavior:
+</p>
+
+<ul>
+  <li>The agent's name</li>
+  <li>
+    A <a href="#statepredictor">State Predictor</a> to identify possible game
+    states
+  </li>
+  <li>
+    A <a href="#statecombiner">State Combiner</a> to merge together state
+    predictions
+  </li>
+  <li>
+    A <a href="#selectionalgorithm">Selection Algorithm</a> to pick an action in
+    a given game state
+  </li>
+  <li>
+    A <a href="#stateevaluator">State Evaluator</a> to analyze the value of game
+    states
+  </li>
+</ul>
+
+<p>
+  These pieces work together to provide an agent response, as described next.
+</p>
+
+<h1>AI Building Blocks</h1>
+
+<p>
+  The standard dataflow for resolving a <code>pick_action()</code> function call
+  goes through each of these systems in turn as illustrated here:
+</p>
+
+<img src="/assets/images/aiDiagram.png" alt="Diagram of AI system" />
+
+<h2>StatePredictor</h2>
+<p>
+  Spelldawn is a game with hidden information. The state of things like the
+  opponent's face-down cards can significantly change the decision-making
+  process of an AI implementation. In order to represent this, the
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_core/src/state_predictor.rs"
+      >StatePredictor</a
+    ></code
+  >
+  type takes the actual <i>canonical</i> game state and returns an iterator over
+  <i>possible</i> game states which represent the agent's limited information
+  about the world.
+</p>
+
+<p>
+  StatePredictor implementations should typically censor any non-public
+  information from the input game state. They can also optionally implement
+  prediction heuristics to derive possible game states, e.g. inferring the
+  identity of face-down cards based on a known or projected opponent decklist.
+</p>
+
+<p>
+  The simplest StatePredictor is the 'omniscient' predictor which simply returns
+  the canonical gamestate unchanged. This means that the AI agent has perfect
+  information about all hidden cards, which is very effective but obviously
+  constitutes cheating from the perspective of a player.
+</p>
+
+<h2>StateCombiner</h2>
+<p>
+  Given the ability to predict game states, the AI agent must now select an
+  action to take in the presence of uncertainty. This is where a
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_core/src/state_combiner.rs"
+      >StateCombiner</a
+    ></code
+  >
+  is used. This type represents a means to evaluate state predictions and select
+  a state to use as the basis of decision-making.
+</p>
+
+<p>
+  The StateCombiner use an evaluation function (a
+  <a href="#stateevaluator">StateEvaluator</a>) to analyze game states. The
+  simplest StateCombiner is the 'worst_case' combiner, which always assumes that
+  the <i>worst</i> GameState of the possible options should be used to
+  pessimistically make decisions.
+</p>
+
+<h2>SelectionAlgorithm</h2>
+
+<p>
+  Once a game state to analyze is identified, the actual search logic for
+  picking a game action is implemented via the
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_core/src/selection_algorithm.rs"
+      >SelectionAlgorithm</a
+    ></code
+  >
+  trait. This implements a 'decision rule' to search the game tree and identify
+  the best option.
+</p>
+
+<p>
+  One traditional example of a selection algorithm is tree search, where game
+  actions are tried sequentially, applying the algorithm recursively to pick
+  opponent moves, and then the best result is returned. The
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_tree_search/src/alpha_beta.rs"
+      >AlphaBetaAlgorithm</a
+    ></code
+  >
+  implementation of this concept implements a more optimized version of standard
+  tree search, as described by
+  <a href="https://en.wikipedia.org/wiki/Alpha-beta_pruning"
+    >https://en.wikipedia.org/wiki/Alpha-beta_pruning</a
+  >
+</p>
+
+<p>
+  Another approach to move selection is selecting actions by analyzing random
+  games. This family of techniques is referred to as "Monte Carlo Tree Search",
+  and is implemented by the
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_monte_carlo/src/monte_carlo.rs"
+      >MonteCarloAlgorithm</a
+    ></code
+  >
+  struct. Within the world of Monte Carlo methods, various algorithms exist for
+  identifying which moves to analyze. One standard heuristic is the UCT1
+  criterion, implemented by
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_monte_carlo/src/uct1.rs"
+      >Uct1</a
+    ></code
+  >.
+</p>
+
+<h2>StateEvaluator</h2>
+
+<p>
+  The final piece of the puzzle for AI implementations is the ability to
+  evaluate a game state to determine whether it is favorable to the current
+  player. This is the role of the
+  <code
+    ><a
+      href="https://github.com/thurn/spelldawn/blob/master/crates/ai_core/src/state_evaluator.rs"
+      >StateEvaluator</a
+    ></code
+  >
+  trait. Given a game state and a player in the game, the evaluator returns a
+  negative integer if the state is worse for that player (i.e. they are losing
+  or have lost) and a positive integer if the state is better. A very simple
+  evalautor is the 'Win/Loss' function, which simply returns 1 if the player has
+  won the game, 0 if the game is in progress, and -1 if the player has lost.
+  This functions well for some algorithms, but more sophisticated algorithms can
+  improve AI performance significantly.
+</p>
+
+<p>
+    Evaluators tend to be the least generic pieces of the AI system, since their
+    exact implementation is very game-dependent, and this is where all sorts of
+    'expert hueristics' for game evaluation are encoded.
+</p>

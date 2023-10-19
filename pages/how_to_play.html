@@ -32,11 +32,11 @@ layout: page
 
 <p>
   Players in Spelldawn alternate taking turns, always beginning with the
-  Overlord. During a player's turn, they have three
+  Overlord. During a player's turn, they have
   <b>action points (<i class="fas fa-hourglass"></i>)</b> to spend on a variety
   of possible game effects such as gaining
   <b>mana (<i class="fas fa-fire"></i>)</b>, drawing cards, and playing cards.
-  The Overlord can play and level up their <b>scheme</b> cards in the rooms of
+  The Overlord can play and progress their <b>scheme</b> cards in the rooms of
   the dungeon in order to score points, while deploying minions to defend them.
   The Champion can initiate a <b>raid</b> on a room of the dungeon to attempt to
   bypass the dungeon's defenses and score points by foiling the Overlord's
@@ -44,11 +44,11 @@ layout: page
 </p>
 
 <p>
-  The objective of the game for both players is to score seven points. The
-  Overlord scores points by leveling up their scheme cards, while the Champion
-  scores points by initiating raids and stopping those schemes. The Champion
+  The objective of the game for both players is to score 60 points. The
+  Overlord scores points by progresing their scheme cards, while the Champion
+  scores points by initiating raids and scoring those schemes. The Champion
   also loses the game if they take too much damage (see
-  <a href="#damage">Damage</a> below), and both players lose the game if they
+  <a href="#damage">Damage</a> below), and the Overlord loses the game if they
   must draw a card from an empty deck.
 </p>
 
@@ -56,7 +56,8 @@ layout: page
 
 <p>
   To start a game of Spelldawn, each player reveals their
-  <b>identity card</b> to their opponent, a special card in play which can grant
+  <b>riftcaller card</b> and any <b>boon cards</b> to their opponent,
+  special cards in play which can grant
   unique abilities throughout a game. Each player starts the game with 5 mana
   and draws 5 cards from their deck to form a starting hand. After drawing
   starting hands, the Overlord may choose to <b>mulligan</b> their hand,
@@ -92,76 +93,47 @@ layout: page
 
 <p>Other rooms are referred to as <b>outer rooms</b>.</p>
 
-<p>
-  The user interface provides access to various features to enable game actions
-  to be taken and for the state of different game zones to be inspected. Some of
-  the different options are shown here:
-</p>
-
-<img src="/assets/images/sampleGameTooltips.png" />
-
-<p>
-  Don't worry if these concepts don't all make sense yet, refer back to this
-  image after reading on below.
-</p>
-
 <h1>Schools of Magic</h1>
 <p>
-  In the world of Spelldawn, certain rare individuals can call upon powerful
-  magical forces in order to accomplish their goals. Each person is primarily
-  attuned to one of the three great <b>schools</b> of magic, allowing them to
-  channel it into their spells for good or evil. Each card has a school
-  associated with it and these are important for deckbuilding (see
-  <a href="#deckbuilding">Deckbuilding</a> below).
+  In the world of Spelldawn, certain rare individuals called Riftcallers can
+  call upon powerful magical forces in order to accomplish their goals. Each
+  card has a school associated with it, and only cards from schools matching
+  your Riftcaller can be found during an adventure.
 </p>
 
 <p>The schools of magic are:</p>
 <ul>
-  <li><b>Law:</b> The magic of organization and order.</li>
-  <li><b>Primal:</b> The magic of instinct and nature.</li>
-  <li><b>Shadow:</b> The magic of deception and darkness.</li>
+  <li><b>Law:</b> The magic of structure and order.</li>
+  <li><b>Beyond:</b> The magic of time and knowledge.</li>
+  <li><b>Shadow:</b> The magic of deception and death.</li>
+  <li><b>Pact:</b> The magic of blood and bargains.</li>
+  <li><b>Primal:</b> The magic of nature and the elements.</li>
 </ul>
 
 <p>
-  In addition to the three schools, some cards have no school affiliation. These
+  In addition to these schools, some cards have no school affiliation. These
   are called <b>neutral</b> cards and can be used in any deck.
 </p>
 
 <h1>Overlord Cards</h1>
 
 <p>
-  There are five types of Overlord cards: identities, spells, schemes, minions,
-  and projects. All cards except the identity card are shuffled into the
-  Overlord deck at the start of the game. Overlord permanent cards are played
-  face down into different rooms.
+  There are five types of Overlord cards: rfitcallers, spells, schemes, minions,
+  and projects. All cards except the riftcaller card are shuffled into the
+  Overlord deck at the start of the game. Cards other than spells are called
+  'permanent' cards. Overlord permanent cards are always played face down into
+  different rooms.
 </p>
 
-<h2>Overlord Identity</h2>
+<h2>Riftcallers</h2>
 
 <div class="card-image-row right-card">
   <div class="card-image-text">
     <p>
-      The identity card defines who the Overlord is in the universe of
-      Spelldawn. It influences the
-      <a href="#deckbuilding">Deckbuilding</a> rules for the Overlord player,
-      controlling the school to which cards in the deck must belong and how many
-      cards are allowed from competing schools.
+      The riftcaller card defines who the Overlord is in the universe of
+      Spelldawn. It starts the game in play and provides an ongoing benefit
+      throughout the game.
     </p>
-
-    <p>
-      Identity cards start the game in play, and provide abilities which are
-      active throughout the game.
-    </p>
-
-    <h4>Icons:</h4>
-
-    <div class="card-icon-row">
-      <spelldawn-icon
-        iconType="OverlordCompetingSchools"
-        value="6"
-      ></spelldawn-icon>
-      <b>Competing school cards allowed</b>
-    </div>
   </div>
 
   <spelldawn-card
@@ -171,11 +143,11 @@ layout: page
     rarity="Common"
     overlordCompetingSchools="6"
   >
-    <p>Your Projects cost +1{M} to destroy.</p>
+    <p>Projects cost +1{M} to destroy.</p>
   </spelldawn-card>
 </div>
 
-<h2>Overlord Spells</h2>
+<h2>Spells</h2>
 
 <div class="card-image-row left-card">
   <spelldawn-card
@@ -215,8 +187,8 @@ layout: page
 
     <p>
       The Overlord plays scheme cards face-down in outer rooms. Each scheme has
-      a level requirement that must be met before the Overlord can score that
-      card (see the <a href="#level-up-a-room">Level Up a Room</a> action).
+      a 'progress requirement' that must be met before the Overlord can score that
+      card (see the <a href="#progress-a-card">Progress a Card</a> action).
       There can only ever be one scheme <b>or</b> one project in a room at a
       given time. Schemes often have a
       <b><i class="fas fa-bolt"></i>Score</b> ability which resolves when the
@@ -227,11 +199,11 @@ layout: page
 
     <div class="card-icon-row">
       <spelldawn-icon iconType="LevelRequirement" value="4"></spelldawn-icon>
-      <b>Level required to score</b>
+      <b>Progress counters required to score</b>
     </div>
 
     <div class="card-icon-row">
-      <spelldawn-icon iconType="Points" value="2"></spelldawn-icon>
+      <spelldawn-icon iconType="Points" value="20"></spelldawn-icon>
       <b>Points value</b>
     </div>
   </div>
@@ -268,7 +240,7 @@ layout: page
     <p>
       Minions are cards that the Overlord plays in order to defend the rooms of
       the dungeon against the Champion. Minions are played face down in rooms
-      <i>without</i> paying their mana cost. They are automatically
+      <i>without</i> paying their mana cost. They can be
       <b>summoned</b> and turned face up during a raid by paying their mana cost
       if the Overlord has sufficient mana available.
     </p>
@@ -301,17 +273,10 @@ layout: page
   <div class="card-image-text">
     <p>
       Projects provide the Overlord with resources in order to further their
-      objectives. They're played in outer rooms in the same manner as schemes
-      <i>without</i> paying their mana cost. Projects usually specify an
-      <b>Unveil</b> condition which causes them to be turned face up
-      <i>if</i> the Overlord has sufficient mana available to pay their cost.
-    </p>
-
-    <p>
-      Some projects with the <b>Level Up</b> keyword can be leveled up in the
-      same manner as schemes, in order to mislead the Champion. When the
-      Champion accesses a project they can <b>destroy</b> it by paying mana
-      equal to its mana cost.
+      objectives. They're played in outer rooms in the same manner as schemes,
+      <i>without</i> paying their mana cost. Projects can be summoned by the
+      Overlord, turning them face up by playing their mana cost. Different
+      projects have different rules about when they can be summoned.
     </p>
   </div>
 
@@ -330,12 +295,12 @@ layout: page
 <h1>Champion Cards</h1>
 
 <p>
-  There are four types of Champion cards: identities, weapons, artifacts, and
-  spells. As with the Overlord, the non-identity cards are shuffled together to
+  There are four types of Champion cards: riftcallers, allies, evocations, artifacts, and
+  spells. As with the Overlord, the non-riftcaller cards are shuffled together to
   create the Champion's deck. Champion cards are always played face-up.
 </p>
 
-<h2>Champion Identity</h2>
+<h2>Riftcaller</h2>
 
 <div class="card-image-row left-card">
   <spelldawn-card
@@ -350,35 +315,23 @@ layout: page
 
   <div class="card-image-text">
     <p>
-      As with the Overlord, the Champion's identity card defines the character
-      the Champion is playing as in the current game. The same
-      <a href="#deckbuilding">Deckbuilding</a> restrictions apply to the
-      Champion deck. The Champion identity card starts the game in play and
-      provides ongoing abilities throughout the game.
+      As with the Overlord, the Champion's rifcaller card defines the character
+      the Champion is playing as in the current game. The Champion rifcaller
+      card starts the game in play and provides ongoing abilities throughout the game.
     </p>
-
-    <h4>Icons:</h4>
-
-    <div class="card-icon-row">
-      <spelldawn-icon
-        iconType="ChampionCompetingSchools"
-        value="8"
-      ></spelldawn-icon>
-      <b>Competing school cards allowed</b>
-    </div>
   </div>
 </div>
 
-<h2>Weapons</h2>
-
+<h2>Artifacts</h2>
 <div class="card-image-row right-card">
   <div class="card-image-text">
     <p>
-      Weapons are used by the Champion to defeat the Overlord's minons. The
-      Champion plays weapons by paying their mana cost. During a raid, a weapon
-      can be used to attack and defeat a minion if it is of the correct
-      <a href="#lineage-types">Lineage</a> and its <b>attack value</b> equals or
-      exceeds the minion's health.
+      Artifacts provide the Champion with ongoing benefits. A subset of
+      artifacts called Weapons are used by the Champion to defeat the Overlord's
+      minons. The Champion plays weapons by artifacts their mana cost.
+      During a raid, a weapon can be used to attack and defeat a minion if it is
+      of the correct <a href="#resonance">Resonance</a> and its <b>attack
+      value</b> equals or exceeds the minion's health.
     </p>
 
     <p>
@@ -408,7 +361,7 @@ layout: page
   </spelldawn-card>
 </div>
 
-<h2>Artifacts</h2>
+<h2>Allies</h2>
 
 <div class="card-image-row left-card">
   <spelldawn-card
@@ -423,18 +376,40 @@ layout: page
   </spelldawn-card>
 
   <div class="card-image-text">
-    Artifacts provide a variety of additional tools for the Champion to draw
-    upon. The Champion plays artifacts by paying their mana cost, and like
-    weapons they enter play face-up and stay in play permanently (or until
+    Allies provide a variety of additional tools for the Champion to draw
+    upon. The Champion plays allies by paying their mana cost, and like
+    artifacts they enter play face-up and stay in play permanently (or until
     destroyed).
   </div>
 </div>
 
-<h2>Champion Spells</h2>
+<h2>Evocations</h2>
+
+<div class="card-image-row left-card">
+  <spelldawn-card
+    name="Sky's Reach"
+    image="Rexard/FantasyIconsMegaPack/ArmorIcons/ArmorIcons_png/black/belts/belts_11.png"
+    school="Primal"
+    manaCost="0"
+    rarity="Common"
+  >
+    <p>{#}Dawn: Take 1{M}</p>
+    <p>{A} {-} <b>Store</b> 3{M}</p>
+  </spelldawn-card>
+
+  <div class="card-image-text">
+    Evocations are similar to Allies in that they also enter play face-up.
+    Evocations tend to provide resources to the Champion while in play, and they
+    are more vulnerable to being destroyed because they can be targeted when the
+    Champion is cursed (see <a href="#curses">Curses</a> below).
+  </div>
+</div>
+
+<h2>Spells</h2>
 
 <div class="card-image-row right-card">
   <div class="card-image-text">
-    As with the Overlord, the Champion can wield Spell cards to apply one-time
+    As with the Overlord, the Champion can wield spell cards to apply one-time
     effects, paying their listed mana cost, resolving the effects in order, and
     then placing them into the discard pile.
   </div>
@@ -454,9 +429,11 @@ layout: page
 
 <p>
   Players in Spelldawn alternate taking turns, starting with the Overlord
-  player. Players can never take an action during their opponenet's turn. Each
-  player begins their turn with <i class="fas fa-hourglass"></i>
+  player. The Overlord player starts their turn with <i class="fas fa-hourglass"></i>
   <i class="fas fa-hourglass"></i> <i class="fas fa-hourglass"></i> (3 action
+  points) while the Champion player starts their turn with <i class="fas fa-hourglass"></i>
+  <i class="fas fa-hourglass"></i> <i class="fas fa-hourglass"></i> <i
+  class="fas fa-hourglass"></i> (4 action
   points). A turn consists of these phases:
 </p>
 
@@ -479,17 +456,16 @@ layout: page
 <h2>Draw Phase</h2>
 
 <p>
-  The active player draws one card from their deck. If their deck is empty, that
-  player immediately loses the game.
+  The active player draws one card from their deck. If the Overlord player's
+  deck is empty, that player immediately loses the game.
 </p>
 
 <h2>Main Phase</h2>
 
 <p>
-  The player takes actions by spending <i class="fas fa-hourglass"></i>
-  <i class="fas fa-hourglass"></i> <i class="fas fa-hourglass"></i>. All action
-  points must be spent during the main phase, after which the discard phase
-  immediately begins.
+  The player takes actions by spending <i class="fas fa-hourglass"></i> (action
+  points). All action points must be spent during the main phase, after which
+  the discard phase immediately begins.
 </p>
 
 <p>
@@ -514,7 +490,7 @@ layout: page
   </li>
   <li>
     <i class="fas fa-hourglass"></i>, 1<i class="fas fa-fire"></i>
-    <i class="fas fa-long-arrow-alt-right"></i> Level up a room (Overlord)
+    <i class="fas fa-long-arrow-alt-right"></i> Progress a card (Overlord)
   </li>
   <li>
     <i class="fas fa-hourglass"></i>
@@ -549,9 +525,9 @@ layout: page
     resolve their effects immediately. They are then moved to the discard pile.
   </li>
   <li>
-    <b>Artifact</b> and <b>Weapon</b> cards require their mana cost to be paid
-    immediately and are put into play face up on the Champion's side of the game
-    arena.
+    <b>Artifact</b>, <b>Ally</b> and <b>Evocation</b> cards require their mana
+    cost to be paid immediately and are put into play face up on the Champion's
+    side of the game arena.
   </li>
   <li>
     <b>Scheme</b> cards are played face down in an empty outer room that doesn't
@@ -566,24 +542,20 @@ layout: page
   <li>
     <b>Minion</b> cards do <i>not</i> require their mana cost to be paid
     immediately. They are put into play face down as the outermost defender of a
-    room. A maximum of 4 minions can be in a room at any time. If an additional
-    minion is played, the innermost minion is immediately moved to the Crypts.
+    room. A maximum of 4 minions can be in a room at any time.
   </li>
 </ul>
 
-<h3>Level Up a Room</h3>
+<h3>Progress a Room</h3>
 <p>
   By paying <i class="fas fa-hourglass"></i> and 1<i class="fas fa-fire"></i>,
-  the Overlord can pick an outer room to <b>level up</b>. They place one level
-  counter on each card present in that room which can be leveled up. Cards other
-  than schemes can only be leveled up if they have the <b>Level Up</b> keyword.
-  The level up action cannot be taken on a room that has no cards that can be
-  leveled up.
+  the Overlord can pick a card to <b>progress</b>. They place one progress
+  counter on the card.
 </p>
 
 <p>
-  When the number of level counters on a scheme card is greater than or equal to
-  its level requirement, that card will immediately be <b>scored</b>. The scheme
+  When the number of progress counters on a scheme card is greater than or equal to
+  its progress requirement, that card will immediately be <b>scored</b>. The scheme
   card is turned face up, and then any <b><i class="fas fa-bolt"></i>Score</b>
   abilities trigger. The Overlord gains scheme points equal to the points value
   of the card and it moves to their score area.
@@ -605,24 +577,22 @@ layout: page
 
 <h2>Discard Phase</h2>
 <p>
-  Finally, the active player automatically discards down to their maximum hand
-  size. Players begin the game with a maximum hand size of 7 cards, but card
-  effects can increase or decrease this limit. If more cards are present in hand
-  than their maximum hand size, players must discard their leftmost (oldest)
-  card until they are no longer above the maximum.
+  Finally, the active player must discard down to their maximum hand
+  size. Players begin the game with a maximum hand size of 5 cards, but card
+  effects can increase or decrease this limit.
 </p>
 
-<h1>Lineage</h1>
+<h1>Resonance</h1>
 <p>
-  The world of Spelldawn is undergoing a confluence between three planes of
+  The world of Spelldawn is the result of a confluence between three planes of
   existence. The original terrestrial plane is being overlaid by two other
-  planes, the infernal plane and the abyssal plane, and creatures and items from
+  planes, the astral plane and the abyssal plane, and creatures and items from
   those other worlds are now passing through into the mortal world.
 </p>
 
 <p>
   Thus, there are three main types of weapons and minions in Spelldawn, called
-  the <b>lineage</b> of that card. They are:
+  the <b>resonance</b> of that card. They are:
 </p>
 
 <ul>
@@ -631,9 +601,8 @@ layout: page
     terrestrial plane.
   </li>
   <li>
-    <span class="infernal lineage">Infernal</span>: Weapons and creatures from
-    Infernum, a kingdom of flame and soot which exists in a perpetual state of
-    war.
+    <span class="astral lineage">Astral</span>: Weapons and creatures from
+    the Astral Realm, a kingdom of cold starlight.
   </li>
   <li>
     <span class="abyssal lineage">Abyssal</span>: Weapons and creatures from The
@@ -643,26 +612,21 @@ layout: page
 </ul>
 
 <p>
-  Because of the nature of planar magical resonance, minions can only be damaged
-  by a weapon from a matching lineage -- anyone attempt to wield a mortal weapon
+  Because of the nature of planar magical interaction, minions can only be damaged
+  by a weapon from a matching resonance -- anyone attempt to wield a mortal weapon
   against a creature of Infernum will soon discover that their blade simply
   passes through the enemy like slicing through air!
 </p>
 
 <p>
-  In addition to the main lineage types, some weapons and minions have special
+  In addition to the main resonance types, some weapons and minions have special
   properties.
 </p>
 <ul>
   <li>
     <span class="prismatic lineage">Prismatic</span> weapons are rare and
     powerful magical artifacts which have the ability to damage enemies from any
-    lineage.
-  </li>
-  <li>
-    <span class="construct lineage">Construct</span> minions are mechanical
-    assemblages which have disadvantage of being able to be damaged by any
-    weapon type.
+    resonance.
   </li>
 </ul>
 
@@ -697,7 +661,7 @@ layout: page
   During the encounter phase, the Champion <b>approaches</b> each minion in the
   target room in sequence, starting with the outermost minion. If the defending
   minion is face-down and the Overlord currently has mana available to pay its
-  listed summon cost, the minion is <b>summoned</b>, turning it face up. Any
+  listed summon cost, the minion may be <b>summoned</b>, turning it face up. Any
   <b><i class="fas fa-bolt"></i>Summon</b> abilities on the card trigger.
 </p>
 
@@ -719,12 +683,12 @@ layout: page
 <ul>
   <li>
     Pay an amount of mana equal to the <b>shield</b> value of the minion, if
-    any. Some card effects such as the <b>Breach</b> keyword reduce the amount
+    any. Some card effects such as the <b>breach</b> keyword reduce the amount
     that must be paid for shield values.
   </li>
   <li>
     Deal damage to the minion equal to its <b>health</b> value. Weapons with the
-    same lineage type as the minion deal damage equal to their base attack value
+    same resonance type as the minion deal damage equal to their base attack value
     plus any bonuses from abilities.
   </li>
 </ul>
@@ -805,14 +769,12 @@ layout: page
   </li>
   <li>
     If the Champion accesses a project card, it becomes revealed. The Champion
-    may destroy it by paying its unveil cost and then moving it to the
+    may destroy it by paying its 'raze' cost and then moving it to the
     Overlord's discard pile.
   </li>
   <li>
     Other card types have no effect when accessed other than becoming revealed
-    to the Champion. The revealed state of cards persists across game zones, for
-    example when a minion is played from hand into a specific room it continues
-    to be revealed.
+    to the Champion.
   </li>
 </ul>
 
@@ -834,103 +796,28 @@ layout: page
 
 <h2>Curses</h2>
 <p>
-  A card ability may apply a <b>curse</b> to the Champion. Curses are spell
-  cards with the text "Cannot be discarded" which are generated in the
-  Champion's hand. They may also have other ongoing effects while in hand.
-  Curses have a mana cost of 2<i class="fas fa-fire"></i>. While the Champion
-  has a curse card in hand they are said to be <b>cursed</b>.
+  A card ability may apply a <b>curse</b> to the Champion. Curses can be removed
+  by paying <i class="fas fa-hourglass"></i> and 2<i class="fas fa-fire"></i>.
+  While the Champion has a curse card in hand they are said to be <b>cursed</b>.
 </p>
 <p>
-  A curse card can never be discarded to damage or to hand size during the
-  discard phase. However, curses can be removed from hand by playing them
-  normally via the 'Play Card' action, spending
-  <i class="fas fa-hourglass"></i> and 2<i class="fas fa-fire"></i>. If the
-  Champion's hand consists <i>only</i>
-  of curse cards when they take damage, they lose the game due to being unable
-  to discard a card.
+  While the Champion is cursed, the Overlord can destroy the Champion's
+  evocation cards during their turn by paying <i class="fas fa-hourglass"></i>
+  and 2<i class="fas fa-fire"></i>.
 </p>
 
 <h1>Winning the Game</h1>
 <p>There are three primary ways in which a game of Spelldawn can end:</p>
 <ul>
   <li>
-    If at any time a player has 7 or more points, they immediately win the game
+    If at any time a player has 60 or more points, they immediately win the game
   </li>
   <li>
-    If a player attempts to draws a card from an empty deck, their opponenent
-    wins the game.
+    If the Overlord player attempts to draws a card from an empty deck, the
+    Champion wins the game.
   </li>
   <li>
     If the Champion takes damage and is unable to discard a card, the Overlord
     wins the game.
   </li>
 </ul>
-
-<h1>Deckbuilding</h1>
-<p>
-  A deck in Spelldawn consists of 50 regular cards and an identity card. Decks
-  are associated with a specific side (Overlord or Champion) and a primary
-  <a href="#schools-of-magic">school</a> of magic. Decks cannot contain more
-  than 3 copies of any card by name.
-</p>
-
-<p>
-  The chosen identity card must match the school for the deck. Decks can contain
-  any number of neutral cards and cards from that school. In addition, the
-  identity card gives a number of <b>competing school</b> cards allowed in the
-  deck. For example, a Shadow deck whose identity displays the number 6 may
-  contain any number of Shadow and neutral cards, but can contain at most 6 Law
-  or Primal cards.
-</p>
-
-<p>
-  The Overlord deck must contain at least 20 scheme points worth of scheme
-  cards.
-</p>
-
-<h1>Rarity and Game Rewards</h1>
-<p>
-  The winner of a game of Spelldawn receives a pack of 5 cards as a reward.
-  Cards are available in four levels of rarity: Common, Rare, Exalted, and
-  Legendary.
-</p>
-
-<p>
-  The first four cards in a pack occupy <b>normal slots</b> and can contain any
-  rarity of cards, in this distribution:
-</p>
-
-<ul>
-  <li><b>Common</b>: 80%</li>
-  <li><b>Rare</b>: 15%</li>
-  <li><b>Exalted</b>: 4%</li>
-  <li><b>Legendary</b>: 1%</li>
-</ul>
-
-<p>
-  The fifth card in a pack occupies the <b>rare slot</b> and always contains a
-  rare card or better, following this distribution:
-</p>
-
-<ul>
-  <li><b>Rare</b>: 75%</li>
-  <li><b>Exalted</b>: 20%</li>
-  <li><b>Legendary</b>: 5%</li>
-</ul>
-
-<p>
-  Card packs are conceptually generated by drawing without replacement from a
-  player's <b>reward deck</b>, a collection which initially contains 3 copies of
-  every card in the game. This means that packs are more likely to contain cards
-  that have not previously been collected, and can never contain cards that a
-  player already has 3 copies of. If the reward deck is empty for a given rarity
-  level, pack generation reverts to random selection.
-</p>
-
-<h2>Experience Points</h2>
-<p>
-  The loser of a game of Spelldawn does not receive any cards, but they do gain
-  the benefit of experience, learning from their defeat in order to improve in
-  the future. This player earns 60 <b>experience points</b> after losing a game.
-  100 experience points can be redeemed for a card pack.
-</p>
